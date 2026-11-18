@@ -1,7 +1,7 @@
 # Principles: Financial Health Check (internal)
 
-## Tier (G0, proposed 2026-11-19, not yet approved)
-Tier: T1 (proposed) · Reason: highest answer decides (FD-03 §4.2)
+## Tier (G0, approved 2026-11-19, D-001)
+Tier: T1 · Reason: highest answer decides (FD-03 §4.2)
 
 | Question | Answer | Tier |
 |---|---|---|
@@ -18,7 +18,11 @@ Tier: T1 (proposed) · Reason: highest answer decides (FD-03 §4.2)
 
 ## Environment (observed 2026-11-19)
 - OS: Windows 10 Pro 10.0.19045 · Git 2.54.0 (credential.helper=manager) · Node.js 24.16.0
-- No command sandbox on native Windows (S-034): known gap, accepted at T1 pending G0 approval.
+- No command sandbox on native Windows (S-034): known gap, accepted at T1 (D-001).
+
+## Version control (EN-08)
+- Remote: private GitHub repository `fin-health-check` (approved D-001; being created 2026-11-19) · Messages: Conventional Commits
+- Branching, merge style, version scheme: set at G3
 
 ## Memory layout
 Directory: project-memory/ (default) · Deviations: none

@@ -1,6 +1,6 @@
 # Idea Brief: Financial Health Check (bản nội bộ)
 
-Date: 2026-11-19 · Verdict: go (proposed, chờ Owner duyệt G0) · Tier: T1 (proposed)
+Date: 2026-11-19 · Verdict: go · Tier: T1 (approved D-001)
 
 ## Problem
 Owner làm tư vấn tài chính (CFO, kiểm soát nội bộ) và muốn đánh giá nhanh "sức khoẻ tài chính" của một doanh nghiệp từ 3 báo cáo tài chính theo VAS. Hiện việc này làm tay trong Excel hoặc nhờ Claude trong chat: mỗi lần tính lại từ đầu, kết quả không lặp lại được, dễ sai công thức và khó so sánh giữa các doanh nghiệp.
