@@ -1,6 +1,6 @@
 # Spec 001: Chỉ số, Altman Z, Beneish M, Piotroski F
 
-Version 0.1 · Date 2026-11-19 · Status: draft, đi cùng PRD 0.1 ở G1 · Phục vụ REQ-004 đến REQ-007
+Version 0.2 · Date 2026-11-19 · Status: approved cùng PRD 0.2 (G1, D-002) · Phục vụ REQ-004 đến REQ-007
 
 Quy ước: "t" = năm đang xét, "t−1" = năm trước. "bq" = bình quân số đầu năm và cuối năm. Thiếu số → "Không tính được" + tên dòng thiếu (REQ-004 AC-004.2). Mã số dòng ghi theo **TT200**; tên dòng là khoá chính, mã TT99 bổ sung ở G3 từ Phụ lục IV văn bản gốc (PRD "Kiểm thông tư").
 
@@ -78,7 +78,7 @@ LN giữ lại: dùng LNCPP (B01.421) [ASSUMPTION: VAS không có dòng "retaine
 | Z' | Sản xuất (mặc định HPG) | 0,717·X1 + 0,847·X2 + 3,107·X3 + 0,420·X4 + 0,998·X5 | > 2,9 | 1,23 – 2,9 | < 1,23 |
 | Z'' | Phi sản xuất, dịch vụ, đa ngành (mặc định PHP, VIC) | 6,56·X1 + 3,26·X2 + 6,72·X3 + 1,05·X4 | > 2,6 | 1,1 – 2,6 | < 1,1 |
 
-Cờ F15 trong `FLAG_RULES.md` đọc vùng theo đúng biến thể (Vàng = xám, Đỏ = nguy hiểm). Bản gốc 1968 (X4 theo giá thị trường) để ngoài phạm vi trừ khi Owner chọn khác ở Q3.
+Cờ F15 trong `FLAG_RULES.md` đọc vùng theo đúng biến thể (Vàng = xám, Đỏ = nguy hiểm). Bản gốc 1968 (X4 theo giá thị trường) để ngoài phạm vi (D-002, Q3). Loại doanh nghiệp đã chốt: HPG sản xuất; PHP dịch vụ; VIC đa ngành (D-002, Q5).
 
 ## 4. Beneish M, 8 biến (REQ-006) [KNOWN: Beneish 1999]
 

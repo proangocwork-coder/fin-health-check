@@ -1,15 +1,15 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 2 (VIBEOS, company laptop) · Checkpoint: CP-20261119-04
-Tier: T1 · Stage: Requirements · Last gate passed: G0 (2026-11-19, D-001) · **awaiting_approval: G1**
+Updated: 2026-11-19 by WP-07 session 2 (VIBEOS, company laptop) · Checkpoint: CP-20261119-05
+Tier: T1 · Stage: Design · Last gate passed: G1 (2026-11-19, D-002)
 
 ## Now
-G1 package written and sent to the Owner: `PRD.md` 0.1 (10 REQ, 5 NFR), `features/001-metrics-and-scores/spec.md` 0.1 (input lines, ratio formulas, Altman Z'/Z'', Beneish M, Piotroski F), `FLAG_RULES.md` 0.1 plus a hand test on HPG 2025. Waiting for the Owner to approve G1 and answer Q1–Q5 (PRD "Open questions"; each has a default).
+G1 approved (Owner's words: "Duyệt G1, giữ mặc định"). `PRD.md` 0.2 approved, `features/001-metrics-and-scores/spec.md` 0.2, `FLAG_RULES.md` 0.2 (thresholds kept; F10 uses trade receivables B01.131; no total score). Session 2 closed.
 
 ## Next
-1. On approval: decision record D-002 with the Owner's exact words; apply answers to PRD / FLAG_RULES; PRD status → approved.
-2. Then G2 (design; T1 may combine with G1 per WF-LIFECYCLE, not done here because the Owner asked for G1 only).
-3. G3 task: build the TT99 line-code map from Phụ lục IV of the original circular (only secondary sources read so far).
+1. G2 design (next session): `write-adr`, `threat-check` → ADRs, ARCHITECTURE.md; choose the technology stack (allowed only from G2). T1: G2 is an Owner approval gate.
+2. G3 task: build the TT99 line-code map from Phụ lục IV of the original circular (only secondary sources read so far).
+3. Before G4: Owner's own Excel for PHP, VIC, HPG from audited reports (success measure 1, NFR-001).
 
 ## Findings this session (for PILOT-01 and the product)
 - TT99/2025/TT-BTC replaces TT200 for fiscal years from 01/01/2026; FY2025 stays TT200. Line codes shift; B02 code 23 changes meaning (interest → financial expense). Sources: KPMG, MISA summaries; original text not read.
@@ -17,8 +17,7 @@ G1 package written and sent to the Owner: `PRD.md` 0.1 (10 REQ, 5 NFR), `feature
 - Data entry time for the Owner (NFR-002, riskiest assumption) is still NOT measured: the agent pulled ~80% of FY2025 lines in ~2 minutes, which says nothing about the Owner's time.
 
 ## Waiting on Owner
-- Approve G1; answer Q1–Q5 in PRD (thresholds, F10 receivable line, Altman original Z, total score, company types).
-- Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002).
+- Nothing blocking. Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.

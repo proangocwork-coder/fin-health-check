@@ -1,6 +1,6 @@
 # PRD: Financial Health Check (bản nội bộ)
 
-Version 0.1 · Date 2026-11-19 · Tier T1 · Status: draft, chờ duyệt G1
+Version 0.2 · Date 2026-11-19 · Tier T1 · Status: approved (G1, 2026-11-19, D-002)
 Nguồn: `BRIEF.md` (G0 duyệt 2026-11-19, D-001) · Công thức chi tiết: `features/001-metrics-and-scores/spec.md` · Bộ cờ: `FLAG_RULES.md`
 
 ## Goal
@@ -108,16 +108,17 @@ Priority: MVP · Source: `FLAG_RULES.md` nhóm G
 - Hệ quả: nguồn chuẩn để so khớp là báo cáo kiểm toán (PDF) của công ty; trang web chỉ để nhập nhanh và phải qua REQ-003.
 
 ## Open questions
-Gửi Owner ở báo cáo G1. Đều có mặc định; mặc định được dùng nếu Owner duyệt mà không đổi.
-- Q1 [NEEDS CLARIFICATION: Ngưỡng cờ trong FLAG_RULES 0.1 có đổi không?; default: giữ nguyên, hiệu chỉnh sau khi chạy 3 công ty] (REQ-008)
-- Q2 [NEEDS CLARIFICATION: F10 dùng "phải thu khách hàng" hay "tổng phải thu ngắn hạn"?; default: phải thu khách hàng, vì tổng phải thu lẫn trả trước người bán và phải thu khác] (REQ-008)
-- Q3 [NEEDS CLARIFICATION: Có cần Altman Z bản gốc (cần nhập giá cổ phiếu cuối năm) cho công ty sản xuất niêm yết như HPG?; default: không, dùng Z' theo giá trị sổ sách để chỉ cần 3 báo cáo] (REQ-005)
-- Q4 [NEEDS CLARIFICATION: Có cần "điểm tổng" (số cờ Đỏ, số cờ Vàng)?; default: chỉ đếm số cờ Đỏ / Vàng ở đầu trang, không quy ra một điểm] (REQ-008)
-- Q5 [NEEDS CLARIFICATION: Loại doanh nghiệp của 3 mã; default: HPG = sản xuất (Z'); PHP = dịch vụ (Z''); VIC = đa ngành (Z'')] (REQ-005)
+Không còn. Q1–Q5 đã trả lời ở G1 (D-002, Owner giữ mọi mặc định):
+- Q1 Ngưỡng cờ: giữ FLAG_RULES bản 0.1; hiệu chỉnh sau khi chạy 3 công ty (REQ-008).
+- Q2 F10 dùng phải thu khách hàng (B01.131) (REQ-008).
+- Q3 Không dùng Altman Z bản gốc 1968; chỉ Z' và Z'' (REQ-005).
+- Q4 Không có điểm tổng; đầu trang đếm số cờ Đỏ và Vàng (REQ-008).
+- Q5 HPG = sản xuất (Z'); PHP = dịch vụ (Z''); VIC = đa ngành (Z'') (REQ-005).
 
 ## Change log
 | Date | Change | Decision |
 |---|---|---|
+| 2026-11-19 | G1 duyệt; ghi câu trả lời Q1–Q5 (không đổi nghĩa yêu cầu nào) | D-002 |
 
 ## Quality check before G1
 - [x] Every requirement traces to the brief (REQ-002, REQ-003 từ kết quả kiểm ở G1 mà BRIEF yêu cầu).
@@ -126,5 +127,5 @@ Gửi Owner ở báo cáo G1. Đều có mặc định; mặc định được d
 - [x] No technology or implementation detail.
 - [x] NFRs for the tier, each with a target.
 - [x] Out-of-scope list present.
-- [ ] No clarification marker in MVP scope — còn Q1–Q5, đều có mặc định; chờ Owner trả lời ở G1.
+- [x] No clarification marker in MVP scope (Q1–Q5 trả lời ở D-002).
 - [x] No two requirements contradict each other.

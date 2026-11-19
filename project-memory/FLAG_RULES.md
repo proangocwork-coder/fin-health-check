@@ -1,6 +1,6 @@
 # Bộ cờ cảnh báo (bản nháp cho G1)
 
-Version 0.1 · Date 2026-11-19 · Status: draft, chờ Owner sửa và duyệt cùng PRD ở G1
+Version 0.2 · Date 2026-11-19 · Status: approved cùng PRD ở G1 (D-002): giữ ngưỡng 0.1, F10 dùng phải thu khách hàng, không có điểm tổng. Ngưỡng hiệu chỉnh sau khi chạy PHP, VIC, HPG (thay đổi sau G1 là APPROVAL)
 Nguồn: Claude soạn theo yêu cầu Owner ("Soạn cho t cờ cảnh báo đi"). Mọi ngưỡng dưới đây là **đề xuất** [ASSUMPTION], trừ khi ghi nguồn. Owner là người chốt.
 
 ## Cách đọc
@@ -41,7 +41,7 @@ EBIT = LNTT + Lãi vay · EBITDA = EBIT + Khấu hao · Nợ vay = Vay NH + Vay 
 ## D. Vốn lưu động
 | Mã | Cờ | Công thức | Vàng | Đỏ |
 |---|---|---|---|---|
-| F10 | Phải thu tăng nhanh hơn doanh thu | %tăng Phải thu NH − %tăng DTT | > 20 điểm % | > 50 điểm % |
+| F10 | Phải thu tăng nhanh hơn doanh thu | %tăng Phải thu khách hàng (B01.131) − %tăng DTT (D-002) | > 20 điểm % | > 50 điểm % |
 | F11 | Tồn kho tăng nhanh hơn giá vốn | %tăng HTK − %tăng GVHB | > 20 điểm % | — |
 | F12 | Chu kỳ tiền mặt kéo dài | (DSO + DIO − DPO) năm nay − năm trước | > 30 ngày | > 90 ngày |
 
@@ -81,7 +81,7 @@ EBIT = LNTT + Lãi vay · EBITDA = EBIT + Khấu hao · Nợ vay = Vay NH + Vay 
 | F13 | Biên gộp 15,69% so với 13,32% (tăng) | không bật |
 Nhận xét: F10 bật Đỏ chủ yếu vì cách chọn dòng phải thu (tổng phải thu lẫn trả trước người bán, phải thu khác), nên PRD hỏi Owner ở Q2.
 
-## Owner cần trả lời ở G1
-1. Ngưỡng nào Owner muốn đổi? (đặc biệt F01, F04, F08, F10)
-2. Có cờ nào Owner hay dùng mà bảng này thiếu không?
-3. Có muốn một "điểm tổng" (VD: số cờ Đỏ, số cờ Vàng) không, hay chỉ liệt kê?
+## Trả lời ở G1 (D-002, 2026-11-19, Owner: "Duyệt G1, giữ mặc định")
+1. Ngưỡng: giữ nguyên bản 0.1; hiệu chỉnh sau khi chạy 3 công ty.
+2. Cờ bổ sung: không có ở G1.
+3. Điểm tổng: không; đầu trang kết quả đếm số cờ Đỏ và Vàng.
