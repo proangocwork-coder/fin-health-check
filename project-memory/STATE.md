@@ -7,11 +7,12 @@ Tier: T1 · Stage: Requirements · Last gate passed: G0 (2026-11-19, D-001)
 G0 approved. Private repository created by the Owner and pushed: https://github.com/proangocwork-coder/fin-health-check (origin/main). Session 1 closed.
 
 ## Next
-1. G1 (next session): PRD with formulas for ratios, Altman Z (variant by company type), Beneish M, Piotroski F, and 10–15 flag rules; check which VAS circular applies to FY2025–2026; test data entry time with one real listed company.
-2. Ask the Owner (at G1): own flag rules or agent's draft; which 3 listed companies.
+1. G1 (next session): PRD with formulas for ratios, Altman Z (variant by company type), Beneish M, Piotroski F; fold in `FLAG_RULES.md` (draft 0.1, 18 flags, written 2026-11-19 at the Owner's request); check which VAS circular applies to FY2025–2026; test data entry time with one real listed company.
+2. Test companies: Owner chose PHP, VIC, MBB (2026-11-19). MBB is a bank: different statement forms, and ratios, Z, M, F and flags do not apply. Pending Owner choice (see below).
 
 ## Waiting on Owner
-- Nothing blocking. G1 questions above are asked at the start of the next session.
+- Replace MBB? Options put to the Owner 2026-11-19: (A) swap MBB for a manufacturer, e.g. HPG (recommended); (B) keep MBB and add a bank module (larger scope); (C) keep MBB only to check the app says "not applicable".
+- Review FLAG_RULES.md thresholds (questions at the end of that file).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
