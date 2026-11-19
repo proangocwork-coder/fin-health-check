@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>So khớp với bảng đối chiếu T-014</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+    pre { font-size: 13px; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <h1>T-013: so khớp phần mềm với bảng đối chiếu T-014</h1>
+  <p>Dòng đầu: COMPARE: số ô khớp / tổng số ô. Bên dưới liệt kê từng ô lệch.</p>
+  <pre id="out">Đang so…</pre>
+
+  <script src="../src/fhc.js"></script>
+  <script src="../src/lines.js"></script>
+  <script src="../src/format.js"></script>
+  <script src="../src/checks.js"></script>
+  <script src="../src/ratios.js"></script>
+  <script src="../src/altman.js"></script>
+  <script src="../src/beneish.js"></script>
+  <script src="../src/piotroski.js"></script>
+  <script src="../src/flags.js"></script>
+  <script src="../src/entry.js"></script>
+  <script src="../tests/fixtures/reference-t014.js"></script>
+  <script>
+    (function () {
+      var REF = window.FHC_REFERENCE_T014;
+      var KEYS = { TSNH: 'currentAssets', Tien: 'cash', PhaiThuNH: 'shortReceivables', PhaiThuKH: 'tradeReceivables',
+        HTK: 'inventories', TSCDHH: 'tangibleFixedAssets', TongTS: 'totalAssets', NoPT: 'liabilities', NoNH: 'currentLiabilities',
+        PhaiTraNB: 'tradePayables', VayNH: 'shortBorrowings', NoDH: 'nonCurrentLiabilities', VayDH: 'longBorrowings',
+        VCSH: 'equity', VonGop: 'contributedCapital', LNCPP: 'retainedEarnings', DTT: 'revenue', GVHB: 'cogs',
+        LNGop: 'grossProfit', LaiVay: 'interest', CPBH: 'sellingExpense', CPQL: 'adminExpense', LNThuan: 'operatingProfit',
+        LNKhac: 'otherProfit', LNTT: 'profitBeforeTax', LNST: 'profitAfterTax', LNTT_B03: 'cfProfitBeforeTax',
+        KhauHao: 'depreciation', CFO: 'cfo', PhatHanhCP: 'shareIssue' };
+      var SETUP = {
+        HPG: { type: 'manufacturing', opinions: { 2024: 'unqualified', 2025: 'unqualified' } },
+        VIC: { type: 'non-manufacturing', opinions: { 2024: 'unqualified', 2025: 'unqualified' } },
+        PHP: { type: 'non-manufacturing', opinions: { 2024: 'qualified', 2025: 'emphasis' } }
+      };
+      var RATIO = { CR: 'currentRatio', QR: 'quickRatio', CashR: 'cashRatio', DebtTA: 'liabilitiesToAssets', DE: 'debtToEquity',
+        DEBITDA: 'debtToEbitda', ICR: 'interestCoverage', ROA: 'roa', ROE: 'roe', ATO: 'assetTurnover', DSO: 'dso', DIO: 'dio',
+        DPO: 'dpo', CCC: 'cashConversionCycle', GM: 'grossMargin', EBITDAM: 'ebitdaMargin', NM: 'netMargin',
+        CFONI: 'cfoToProfit', CFOCL: 'cfoToCurrentLiabilities', gDTT: 'revenueGrowth', gLNST: 'profitGrowth' };
+      var LEVEL = { red: 'Đỏ', yellow: 'Vàng', none: 'Không bật', missing: 'Không tính được', 'not-applicable': 'Không áp dụng' };
+
+      function buildCompany(cty) {
+        var years = {};
+        REF.sources.filter(function (s) { return s.cty === cty; }).forEach(function (s) {
+          var y = Number(s.ky.slice(1));
+          years[y] = years[y] || {};
+          years[y][KEYS[s.ten]] = s.value;
+        });
+        return {
+          companyType: SETUP[cty].type, industry: [], auditOpinions: SETUP[cty].opinions,
+          years: Object.keys(years).map(function (y) { return { year: Number(y), values: years[y] }; })
+        };
+      }
+
+      // App value for one reference key and year: a number, or a text starting with a level name.
+      function appValue(key, y, all) {
+        if (RATIO[key]) {
+          var r = all.ratios[y].filter(function (x) { return x.key === RATIO[key]; })[0];
+          return r.status === 'ok' ? r.value : (r.reason || 'Không tính được');
+        }
+        var z = all.altman[y], m = all.beneish[y], f = all.piotroski[y];
+        if (/^X[1-5]$/.test(key)) return z.status === 'ok' ? (z.components[key] === undefined ? 'Không áp dụng' : z.components[key]) : 'Không tính được';
+        if (key === 'Z') return z.status === 'ok' ? z.value : 'Không tính được';
+        if (key === 'Zone') return z.status === 'ok' ? z.zone : 'Không tính được';
+        if (['DSRI', 'GMI', 'AQI', 'SGI', 'DEPI', 'SGAI', 'TATA', 'LVGI'].indexOf(key) >= 0) return m.status === 'ok' ? m.components[key] : 'Không tính được';
+        if (key === 'M') return m.status === 'ok' ? m.value : 'Không tính được';
+        if (/^P[1-9]$/.test(key)) {
+          var c = f.criteria[Number(key.slice(1)) - 1];
+          return c.status === 'pass' ? 1 : c.status === 'fail' ? 0 : 'Không tính được';
+        }
+        if (key === 'F') return f.value;
+        if (key === 'Fn') return f.computable;
+        if (/^F\d\d$/.test(key)) {
+          var fl = all.flags[y].flags.filter(function (x) { return x.code === key; })[0];
+          return LEVEL[fl.level];
+        }
+        return undefined; // derived amounts (NoVay, EBIT, EBITDA, VLD) are not exposed by the app
+      }
+
+      function same(ref, app) {
+        var rn = Number(ref);
+        var refIsNum = ref !== '' && !isNaN(rn);
+        if (app === undefined) return null;
+        if (refIsNum && typeof app === 'number') return Math.abs(rn - app) <= 1e-6 * Math.max(1, Math.abs(rn));
+        if (!refIsNum && typeof app === 'string') {
+          var a = app.toLowerCase(), b = String(ref).toLowerCase();
+          if (b.indexOf('không tính được') === 0) return a.indexOf('không tính được') === 0;
+          return a === b;
+        }
+        return false;
+      }
+
+      var total = 0, ok = 0, skipped = 0, lines = [];
+      Object.keys(SETUP).forEach(function (cty) {
+        var company = buildCompany(cty);
+        var all = {
+          ratios: FHC.ratios.compute(company.years), altman: FHC.scores.altman(company.years, company.companyType),
+          beneish: FHC.scores.beneish(company.years), piotroski: FHC.scores.piotroski(company.years),
+          flags: FHC.flags.evaluate(company)
+        };
+        REF.results.filter(function (r) { return r.cty === cty; }).forEach(function (r) {
+          [2024, 2025].forEach(function (y) {
+            var ref = r['y' + y];
+            var app = appValue(r.key, y, all);
+            var s = same(ref, app);
+            if (s === null) { skipped++; return; }
+            total++;
+            if (s) ok++;
+            else lines.push('LỆCH ' + cty + ' ' + y + ' ' + r.key + ': bảng đối chiếu = ' + ref + ' · phần mềm = ' + app);
+          });
+        });
+      });
+      var summary = 'COMPARE: ' + ok + '/' + total + ' khớp (bỏ qua ' + skipped + ' ô số trung gian phần mềm không hiện)';
+      document.getElementById('out').textContent = [summary].concat(lines).join('\n');
+      document.title = summary;
+    })();
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-14
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-15
 Tier: T1 · Stage: Development (G4 loop) · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
@@ -8,13 +8,14 @@ T-001 to T-012 done: the app is usable end to end (enter / paste, checks, save /
 
 ## Next
 1. On the personal machine, first step: `node --test` must pass (browser-only tests skip under Node; the static "no network API in src/" test runs only there). The Node path of the harness is still untested. If it fails, fix the harness before anything else.
-2. T-014 reference check in a NEW session that does not read `src/` (D-005), then T-013 acceptance with the Owner.
-3. Owner can try the app now: `index.html`, link "Xem ví dụ HPG".
+2. T-014 done by a separate session (commit d160d7d, `project-memory/reference/T-014/`). T-013 agent part done: 389/396 cells match the reference exactly; 7 differences are conventions (X5 for Z''; F17 on a partial Piotroski score in the first year). Waiting on the Owner for the rest of T-013 (see "Waiting on Owner").
+3. Then G4 report (TPL-GATE-REPORT) and retro (TPL-RETRO) to close WP-07.
 4. D-005 (2026-11-19, Owner: "m tự làm kiểm tra đi"): the agent builds the reference check (new T-014) in a separate session that does not read `src/`; T-013 compares the app with it, the Owner spot-checks 5 numbers and still times one entry (NFR-002).
 3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
-- Nothing blocking. At T-013: spot-check 5 reference numbers against the PDFs and time one entry with a stopwatch (NFR-002).
+- T-013: spot-check the 5 numbers listed in `project-memory/reference/T-014/README.md` against the PDFs; time one entry of one company (2 years) with a stopwatch (NFR-002, target ≤ 20 minutes); click "Lưu ra file" then "Mở file" once; print once (Ctrl + P).
+- Optional decision: F17 in a year where fewer than 9 Piotroski criteria are computable — keep "Không tính được" (app now, recommended) or apply "≤ 3" to the partial score (reference).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
