@@ -29,12 +29,12 @@ Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) →
 |---|---|
 | AC-001.1 | `AC-001.1 saved company reopens with the same numbers` (save/load round trip on the data format); manual: save, close, reopen in the browser |
 | AC-001.2 | `AC-001.2 opening-balance-only year counts as a balance-sheet year` |
-| AC-001.3 | `AC-001.3 pasted rows match by line name; unknown rows listed` |
+| AC-001.3 | `AC-001.3 pasted rows match by line name; unknown rows listed` · `AC-001.3 matching is per statement; both interest names accepted` (T-002); paste on the page in T-009 |
 | AC-001.4 | `AC-001.4 unit conversion dong/trieu/ty` |
 | AC-001.5 | `AC-001.5 empty cell is missing, "-" is zero` |
-| AC-002.1 | `AC-002.1 FY2025 defaults to TT200, FY2026 to TT99` |
-| AC-002.2 | `AC-002.2 interest uses TT200 code 23 and TT99 code 24, never TT99 code 23` |
-| AC-002.3 | `AC-002.3 TT99-only lines add into their group total` |
+| AC-002.1 | `AC-002.1 FY2025 defaults to TT200, FY2026 to TT99` · `AC-002.1 non-calendar fiscal year uses its start date` |
+| AC-002.2 | `AC-002.2 interest uses TT200 code 23 and TT99 code 24, never TT99 code 23` · `AC-002.2 balance sheet codes that moved in TT99` |
+| AC-002.3 | `AC-002.3 TT99-only lines exist only in TT99 and belong to a group` (T-002); adding into group totals is checked in T-003 |
 | AC-003.1–4 | `AC-003.1 assets vs resources mismatch 22.38` · `AC-003.2 sub-lines vs group` · `AC-003.3 positive allowance warning` · `AC-003.4 PBT B02 vs B03` |
 | AC-004.1–2 | `AC-004.1 HPG 2025 current ratio 1.10` · `AC-004.2 zero or missing denominator` |
 | AC-004.3 | manual (click a ratio; formula and inputs shown) — needs the page |
