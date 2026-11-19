@@ -29,6 +29,16 @@
     .error, li.error { color: var(--red); }
     li.warning { color: var(--yellow); }
     .file-bar { position: sticky; top: 0; z-index: 1; }
+    .disclaimer { font-weight: 600; }
+    .result-title { font-size: 18px; font-weight: 600; margin: 0; }
+    ul.counts li.red, li.flag.red { color: var(--red); }
+    ul.counts li.yellow, li.flag.yellow { color: var(--yellow); }
+    li.flag.missing, li.flag.none, li.flag.not-applicable { color: var(--muted); }
+    li.flag { margin-bottom: 4px; }
+    td.num, th.num { text-align: right; }
+    button.cell { border: none; background: none; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-decoration: underline dotted; }
+    button.cell.noted::after { content: " *"; color: var(--muted); }
+    .detail { background: var(--bg); padding: 8px; border-radius: 6px; }
     .warning-banner { background: var(--yellow-bg); color: var(--yellow); padding: 6px 10px; border-radius: 6px; margin: 8px 0 0; }
   </style>
 </head>
@@ -51,6 +61,7 @@
   <script src="src/entry.js"></script>
   <script src="src/ui.js"></script>
   <script src="src/storage.js"></script>
+  <script src="src/results.js"></script>
   <script>
     var storage = null;
     try { storage = window.localStorage; } catch (e) { storage = null; }
