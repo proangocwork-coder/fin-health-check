@@ -58,6 +58,8 @@ EBIT = LNTT + Lãi vay · EBITDA = EBIT + Khấu hao · Nợ vay = Vay NH + Vay 
 | F16 | Beneish M (8 biến, cần 2 năm) | M | −2,22 – −1,78 | > −1,78 | Beneish 1999 (−1,78) và 2013 (−2,22) [KNOWN] |
 | F17 | Piotroski F (9 tiêu chí) | F | ≤ 3 | — | Piotroski 2000, nhóm điểm thấp [KNOWN] |
 
+Làm rõ F17 (Owner, 2026-11-19, nguyên văn "Vẫn bật"): khi chỉ tính được một phần 9 tiêu chí (VD năm đầu chỉ 5/9), vẫn áp ngưỡng F ≤ 3 lên điểm đã tính và bật Vàng; hiện kèm "x / số tiêu chí tính được". Không đổi ngưỡng.
+
 ## G. Nhập tay từ báo cáo kiểm toán
 | Mã | Cờ | Điều kiện | Vàng | Đỏ |
 |---|---|---|---|---|

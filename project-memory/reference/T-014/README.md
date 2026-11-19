@@ -34,7 +34,7 @@ Theo spec 001 §2–§5 và FLAG_RULES 0.2; đã so với bài gốc:
 ## Quy ước đã chọn (cần xem phần mềm có làm giống không ở T-013)
 1. Năm 2024 là năm đầu: có Bảng cân đối cuối 2023 (đầu năm 2024) nhưng **không có Kết quả kinh doanh 2023**. Vì vậy năm 2024: số bình quân dùng (cuối 2023 + cuối 2024)/2; tăng trưởng, Beneish M, F10–F14, F16 ghi "Không tính được"; Piotroski chỉ tính được 5/9 tiêu chí (1, 2, 4, 6, 7).
 2. F06 năm 2024 chỉ xét một năm; F07 năm 2024 "Không bật" nếu CFO/LNST ≥ 0,5, ngược lại "Không tính được".
-3. F17 năm 2024 áp ngưỡng F ≤ 3 lên điểm 5 tiêu chí (HPG 2/5, VIC 3/5 → Vàng). Phần mềm có thể xử lý khác.
+3. F17 năm 2024 áp ngưỡng F ≤ 3 lên điểm 5 tiêu chí (HPG 2/5, VIC 3/5 → Vàng). **Owner chốt 2026-11-19: "Vẫn bật"** (ghi ở FLAG_RULES, mục F17); phần mềm đang ghi "Không tính được" nên phải sửa theo.
 4. Piotroski 7 dùng đúng dòng B03.31. Dòng này **gồm cả tiền góp vốn của cổ đông không kiểm soát** (HPG 687,5 tỷ năm 2025; VIC 2.267.028 triệu) nên tiêu chí 7 không đạt dù công ty mẹ không phát hành.
 5. VIC: dòng 23 ghi "chi phí lãi vay **và chi phí phát hành**"; đã dùng nguyên dòng. Trái phiếu hoán đổi (mã 339) **không** cộng vào Vay DH (đúng mã 338 của spec).
 6. HPG: số cuối 2024 lấy từ cột "Số đầu năm (Trình bày lại)" của báo cáo 2025; số năm 2024 của kết quả kinh doanh lấy từ cột "Năm trước" của báo cáo 2025. VIC, PHP: số 2024 lấy từ báo cáo 2024 và đã so với cột so sánh của báo cáo 2025, khớp hết các dòng dùng ở đây.
