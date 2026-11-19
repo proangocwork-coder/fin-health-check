@@ -12,7 +12,7 @@ Route: R3 (new product) · Tier: T1 · Planned at G3, 2026-11-19 · Sources: PRD
 | T-006 [P] | Beneish M with the 8 sub-indices | REQ-006 AC-006.1–2; spec §4 | M → S | T-004 | done | `src/beneish.js`; `tests/beneish.test.js` 6 tests seen failing first, then pass (identical years give M = −2,48; DSRI 2 gives −1,56). Full run PASS 47/47 |
 | T-007 [P] | Piotroski F with per-criterion pass / fail / not computable | REQ-007 AC-007.1; spec §5 | M → M | T-004 | done | `src/piotroski.js`; `tests/piotroski.test.js` 5 tests seen failing first, then pass. Self-review found a zero-denominator case read as "pass"; a 6th test reproduced it (FAIL 46/47), fixed, PASS 47/47 |
 | T-008 | Flag engine F01–F18 with reason line (rule, numbers, years, threshold); audit opinion input drives F18 | REQ-008 AC-008.1–2; REQ-010 AC-010.1; FLAG_RULES 0.2 | L → M | T-004, T-005, T-006, T-007 | done | `src/flags.js` (18 flags, reason line per flag, red/yellow counts, industry notes, disclaimer); `tests/flags.test.js` 15 tests seen failing first (FAIL 47/62), then PASS 62/62 (laptop, 2026-11-19). Node path not run |
-| T-009 | Entry page: type or paste per year, unit choice, empty ≠ 0, template per year, company type, audit opinion | REQ-001 AC-001.3–5; AC-002.1; REQ-010 | L → | T-002, T-003 | todo | |
+| T-009 | Entry page: type or paste per year, unit choice, empty ≠ 0, template per year, company type, audit opinion | REQ-001 AC-001.3–5; AC-002.1; REQ-010 | L → L | T-002, T-003 | done | `src/entry.js` (number styles 1.234,56 / 1,234.56 detected per paste, "-" = 0, empty = missing, brackets negative, column choice, unit conversion) + `src/ui.js` page sections 1–5 + `index.html`. `tests/entry.test.js` 10 tests and `tests/ui.test.js` 6 browser-only tests seen failing first, then PASS 78/78 (laptop, 2026-11-19). `index.html` rendered in Edge headless: 5 sections present. Not yet tried by the Owner |
 | T-010 | Save to file / open file (`.json` with schema version and checks), automatic browser draft, "unsaved changes" banner | REQ-001 AC-001.1–2; NFR-003; D-004 | M → | T-009 | todo | |
 | T-011 | Results page: ratios, Z/M/F, flags with reasons, red/yellow counts, industry notes, disclaimer, click a number to see its formula; test that the code makes no network calls | REQ-004 AC-004.3; REQ-008 AC-008.3–4; D-002 Q4; ARCHITECTURE "Security risks" | M → | T-008, T-009 | todo | |
 | T-012 | Print layout A4 portrait | REQ-009 AC-009.1 | S → | T-011 | todo | |
@@ -30,9 +30,9 @@ Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) →
 |---|---|
 | AC-001.1 | `AC-001.1 saved company reopens with the same numbers` (save/load round trip on the data format); manual: save, close, reopen in the browser |
 | AC-001.2 | `AC-001.2 opening-balance-only year counts as a balance-sheet year` |
-| AC-001.3 | `AC-001.3 pasted rows match by line name; unknown rows listed` · `AC-001.3 matching is per statement; both interest names accepted` (T-002); paste on the page in T-009 |
-| AC-001.4 | `AC-001.4 unit conversion dong/trieu/ty` |
-| AC-001.5 | `AC-001.5 empty cell is missing, "-" is zero` |
+| AC-001.3 | `AC-001.3 pasted rows match by line name; unknown rows listed` · `AC-001.3 matching is per statement` (T-002) · `AC-001.3 paste: header row, several value columns` · `AC-001.3 paste without tabs` · `AC-001.3 apply pasted rows to a year` · `AC-001.3 page: paste fills the table and lists unknown lines` (T-009) |
+| AC-001.4 | `AC-001.4 unit conversion` |
+| AC-001.5 | `AC-001.5 empty cell is missing, "-" is zero, brackets are negative` · `AC-001.5 page: invalid cell is rejected` · `manual cell entry` |
 | AC-002.1 | `AC-002.1 FY2025 defaults to TT200, FY2026 to TT99` · `AC-002.1 non-calendar fiscal year uses its start date` |
 | AC-002.2 | `AC-002.2 interest uses TT200 code 23 and TT99 code 24, never TT99 code 23` · `AC-002.2 balance sheet codes that moved in TT99` |
 | AC-002.3 | `AC-002.3 TT99-only lines exist only in TT99 and belong to a group` (T-002) · `AC-002.3 TT99-only group (biological assets) is counted inside its group` · `AC-002.3 nested levels: a) b) and dash lines` (T-003) |
