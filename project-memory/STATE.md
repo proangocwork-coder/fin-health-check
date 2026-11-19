@@ -8,10 +8,9 @@ G0 approved. Private repository created by the Owner and pushed: https://github.
 
 ## Next
 1. G1 (next session): PRD with formulas for ratios, Altman Z (variant by company type), Beneish M, Piotroski F; fold in `FLAG_RULES.md` (draft 0.1, 18 flags, written 2026-11-19 at the Owner's request); check which VAS circular applies to FY2025–2026; test data entry time with one real listed company.
-2. Test companies: Owner chose PHP, VIC, MBB (2026-11-19). MBB is a bank: different statement forms, and ratios, Z, M, F and flags do not apply. Pending Owner choice (see below).
+2. Test companies (Owner, 2026-11-19): PHP (port services), VIC (conglomerate, large real estate), HPG (steel manufacturer). MBB was first chosen and dropped: a bank, so the models do not apply; Owner's words "Đổi sang HPG". Bank analysis is out of scope for this version.
 
 ## Waiting on Owner
-- Replace MBB? Options put to the Owner 2026-11-19: (A) swap MBB for a manufacturer, e.g. HPG (recommended); (B) keep MBB and add a bank module (larger scope); (C) keep MBB only to check the app says "not applicable".
 - Review FLAG_RULES.md thresholds (questions at the end of that file).
 
 ## Known issues

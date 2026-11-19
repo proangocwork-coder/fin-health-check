@@ -37,4 +37,4 @@ Bản đầu khoảng 5 tính năng: mẫu nhập 3 báo cáo (tối đa 5 năm)
 
 ## Open questions
 - Owner có sẵn bộ quy tắc cờ cảnh báo riêng không, hay dùng bộ Claude đề xuất ở G1 rồi sửa?
-- Chọn 3 công ty niêm yết nào làm dữ liệu chạy thử (khác ngành: sản xuất, thương mại, dịch vụ)?
+- ~~Chọn 3 công ty niêm yết nào làm dữ liệu chạy thử?~~ Đã chốt 2026-11-19: PHP, VIC, HPG (MBB bị thay vì là ngân hàng, mô hình không áp dụng).
