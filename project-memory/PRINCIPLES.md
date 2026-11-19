@@ -21,7 +21,7 @@ Tier: T1 · Reason: highest answer decides (FD-03 §4.2)
 - No command sandbox on native Windows (S-034): known gap, accepted at T1 (D-001).
 
 ## Version control (EN-08)
-- Remote: private GitHub repository `fin-health-check` (approved D-001; being created 2026-11-19) · Messages: Conventional Commits
+- Remote: private GitHub repository `fin-health-check` (approved D-001; created by the Owner 2026-11-19: https://github.com/proangocwork-coder/fin-health-check) · Messages: Conventional Commits
 - Branching, merge style, version scheme: set at G3
 
 ## Memory layout
