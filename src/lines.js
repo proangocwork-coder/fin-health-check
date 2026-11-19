@@ -57,6 +57,12 @@
     ['shareIssue', 'B03', '31', '31', null, 'Tiền thu từ phát hành cổ phiếu, nhận vốn góp của chủ sở hữu']
   ];
 
+  var SHORT = {
+    revenue: 'Doanh thu thuần', grossProfit: 'Lợi nhuận gộp', profitAfterTax: 'LNST',
+    profitBeforeTax: 'LNTT', cfo: 'LCTT thuần từ HĐKD', depreciation: 'Khấu hao',
+    shareIssue: 'Tiền thu từ phát hành cổ phiếu'
+  };
+
   // Lower case, no Vietnamese accents, no numbering prefix, no "(...)", single spaces.
   function normalize(label) {
     var s = String(label == null ? '' : label).toLowerCase();
@@ -98,6 +104,13 @@
 
     get: function (key) {
       return byKey[key] || null;
+    },
+
+    // Short display name used in "Không tính được: ..." messages.
+    label: function (key) {
+      if (SHORT[key]) return SHORT[key];
+      var e = byKey[key];
+      return e ? e.names[0] : key;
     },
 
     codeFor: function (key, template) {

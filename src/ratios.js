@@ -8,16 +8,7 @@
   var FHC = isNode ? require('./fhc.js') : root.FHC;
   if (isNode) require('./lines.js');
 
-  var SHORT = {
-    revenue: 'Doanh thu thuần', grossProfit: 'Lợi nhuận gộp', profitAfterTax: 'LNST',
-    profitBeforeTax: 'LNTT', cfo: 'LCTT thuần từ HĐKD', depreciation: 'Khấu hao',
-    totalAssets: 'Tổng cộng tài sản', tradeReceivables: 'Phải thu ngắn hạn của khách hàng'
-  };
-  function label(key) {
-    if (SHORT[key]) return SHORT[key];
-    var e = FHC.lines.get(key);
-    return e ? e.names[0] : key;
-  }
+  function label(key) { return FHC.lines.label(key); }
   function isNum(x) { return typeof x === 'number' && !isNaN(x); }
 
   // Evaluation context for one ratio in one year.
