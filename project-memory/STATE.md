@@ -1,7 +1,7 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-16
-Tier: T1 · Stage: Development (G4 loop) · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-17
+Tier: T1 · Stage: In use (MVP accepted) · Last gate passed: G4 (2026-11-19, agent-confirmed, `features/001-metrics-and-scores/evidence/G4-report.md`); G5 not applicable (stays on the Owner's machine) · G3 (2026-11-19) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
 T-001 to T-012 done: the app is usable end to end (enter / paste, checks, save / open file, draft, results, print, "Xem ví dụ HPG" demo). T-008 `src/flags.js`; T-009 `src/entry.js` + `src/ui.js`; T-010 `src/storage.js`; T-011 `src/results.js`; T-012 print stylesheet + `src/sample.js`. Browser verify PASS 97/97; demo printed to PDF in Edge headless (2 A4 pages, no cut columns). Earlier: T-001 to T-007 done. T-005 `src/altman.js` (Z' / Z'' by company type, zones; HPG 2025 Z' ≈ 1,49 grey). T-006 `src/beneish.js` (8 indices, needs 2 years). T-007 `src/piotroski.js` (9 criteria, "x/n tiêu chí tính được" when some are missing, zero denominators reported as not computable). Short line names moved to `FHC.lines.label` (shared). T-004: `src/ratios.js`, 21 ratios per year with formula text, inputs, "Không tính được" / "Không áp dụng" reasons, averages from opening and closing balances (year-end with a note in the first year); HPG 2025 values match the G1 hand test. T-003: `src/checks.js` (assets vs resources marks the year "số chưa cân"; group sums from the catalogue; pasted B01 sub-lines vs their group by numbering level; positive asset allowance warning; PBT B02 vs B03) and `src/format.js` (Vietnamese number style). Browser verify PASS 47/47 on the laptop. No task in progress.
@@ -9,12 +9,13 @@ T-001 to T-012 done: the app is usable end to end (enter / paste, checks, save /
 ## Next
 1. On the personal machine, first step: `node --test` must pass (browser-only tests skip under Node; the static "no network API in src/" test runs only there). The Node path of the harness is still untested. If it fails, fix the harness before anything else.
 2. T-014 done by a separate session (commit d160d7d, `project-memory/reference/T-014/`). T-013 agent part done: after D-006 (F17 on a partial Piotroski score, Owner "Vẫn bật") the app matches the reference in 392/396 cells; the 4 left are X5 shown "Không áp dụng" under Z''. Owner spot-checked the 5 reference numbers: 5/5 correct. Browser verify PASS 99/99.
-3. Then G4 report (TPL-GATE-REPORT) and retro (TPL-RETRO) to close WP-07.
+3. T-013 done: Owner spot-check 5/5, entry 3 minutes from a ready-made paste file, save/open OK, print "Đủ cả 7". G4 report and retro written (`retros/2026-11-19-G4.md`). MVP done.
+4. Open items (not blocking use): run `node --test` once on the personal machine; time one entry copied from CafeF or a PDF; check TT99 codes on the first FY2026 report.
 4. D-005 (2026-11-19, Owner: "m tự làm kiểm tra đi"): the agent builds the reference check (new T-014) in a separate session that does not read `src/`; T-013 compares the app with it, the Owner spot-checks 5 numbers and still times one entry (NFR-002).
 3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
-- T-013: time one entry of one company (2 years) with a stopwatch (NFR-002, target ≤ 20 minutes); click "Lưu ra file" then "Mở file" once; print once (Ctrl + P).
+- Nothing blocking. Optional: time one entry copied from CafeF or a PDF (the 3-minute timing used a ready-made paste file).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
