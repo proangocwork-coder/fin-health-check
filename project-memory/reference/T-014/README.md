@@ -67,8 +67,10 @@ Theo spec 001 §2–§5 và FLAG_RULES 0.2; đã so với bài gốc:
 | 4 | VIC – Lợi nhuận sau thuế năm 2025 (mã 60) | 11.064.814 triệu đồng | VIC2025 | tr.10 (PDF tr.13) |
 | 5 | PHP – Lưu chuyển tiền thuần từ hoạt động kinh doanh năm 2025 (mã 20) | 596.439.674.791 đồng | PHP2025 | tr.9 (PDF tr.13) |
 
+**Owner đã dò 2026-11-19: cả 5 số đúng** (so với ảnh nguyên trang PDF của công ty).
+
 Chọn 5 số này vì mỗi số làm bật hoặc đổi một kết quả lớn (số 2 → cờ F10 Đỏ và M Đỏ của HPG; số 3 → cờ F01 Đỏ và Z âm của VIC; số 5 → Piotroski của PHP).
 
 ## Đã kiểm và chưa kiểm được
 - Đã kiểm: mỗi Bảng cân đối khớp tổng (Nợ + VCSH = Tổng nguồn vốn = Tổng TS) ở cả 9 thời điểm; LNTT ở B02 = B03 cả 6 năm; tính lại riêng bằng cách khác (không qua Excel) cho thanh toán hiện hành, EBIT/lãi vay, Nợ vay/EBITDA, ROA, DSO, Z (2 năm), M và F (2025) của cả 3 công ty: khớp 100%.
-- **Chưa kiểm được:** (a) số được đọc bằng mắt từ file ảnh chụp, không có lớp chữ → cần Owner dò 5 số trên; (b) HPG không có bản kiểm toán 2024 gốc trên trang công ty, số cuối 2024 là số **trình bày lại** trong báo cáo 2025 (chưa xem dòng nào bị trình bày lại); (c) chưa đọc thuyết minh để biết phần cổ phiếu thưởng/cổ tức bằng cổ phiếu trong B03.31; (d) mã TT99 không dùng vì 6 báo cáo đều theo TT200.
+- **Chưa kiểm được:** (a) số được đọc bằng mắt từ file ảnh chụp, không có lớp chữ; Owner đã dò 5 số trên, đúng cả 5, các số còn lại chưa ai dò lại; (b) HPG không có bản kiểm toán 2024 gốc trên trang công ty, số cuối 2024 là số **trình bày lại** trong báo cáo 2025 (chưa xem dòng nào bị trình bày lại); (c) chưa đọc thuyết minh để biết phần cổ phiếu thưởng/cổ tức bằng cổ phiếu trong B03.31; (d) mã TT99 không dùng vì 6 báo cáo đều theo TT200.
