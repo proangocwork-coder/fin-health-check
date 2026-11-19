@@ -6,7 +6,7 @@ Route: R3 (new product) · Tier: T1 · Planned at G3, 2026-11-19 · Sources: PRD
 |---|---|---|---|---|---|---|
 | T-001 | Setup: ignore file, folder layout, README, test runner that works in a browser page and in `node --test`, one empty test passing | G3 | M → M | — | done | `tools\verify-browser.cmd` on the company laptop: RESULT: PASS 2/2, exit 0; deliberately broken test gave FAIL 1/2, exit 1 (2026-11-19). `node --test` not yet run (no Node.js on the laptop): first step of the next session on the personal machine |
 | T-002 | Line catalogue TT200 / TT99: name + code per template, default template by fiscal year, matching pasted rows by name | REQ-002 AC-002.1–3; AC-001.3 (matching part) | M → M | T-001 | done | `src/lines.js`; `tests/lines.test.js` 7 tests seen failing first (FAIL 2/9), then `tools\verify-browser.cmd` PASS 9/9, exit 0 (laptop, 2026-11-19). Node path not run. Note for T-003: `parent` is form grouping, not an additive formula |
-| T-003 | Input checks: assets = resources, sub-lines sum to group, positive allowance warning, PBT B02 = B03 | REQ-003 AC-003.1–4 | M → | T-002 | todo | |
+| T-003 | Input checks: assets = resources, sub-lines sum to group, positive allowance warning, PBT B02 = B03 | REQ-003 AC-003.1–4 | M → M | T-002 | done | `src/checks.js`, `src/format.js`; `tests/checks.test.js` 11 tests seen failing first (FAIL 9/20), then `tools\verify-browser.cmd` PASS 20/20, exit 0 (laptop, 2026-11-19). Node path not run. Tolerance 0.05 in the entered unit [ASSUMPTION, review at T-013] |
 | T-004 | Ratio table calculation with "Không tính được" handling | REQ-004 AC-004.1–2; spec §2 | M → | T-002 | todo | |
 | T-005 [P] | Altman Z' / Z'' by company type, zones, "Không áp dụng" for financial firms | REQ-005 AC-005.1–2; spec §3 | S → | T-004 | todo | |
 | T-006 [P] | Beneish M with the 8 sub-indices | REQ-006 AC-006.1–2; spec §4 | M → | T-004 | todo | |
@@ -34,8 +34,8 @@ Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) →
 | AC-001.5 | `AC-001.5 empty cell is missing, "-" is zero` |
 | AC-002.1 | `AC-002.1 FY2025 defaults to TT200, FY2026 to TT99` · `AC-002.1 non-calendar fiscal year uses its start date` |
 | AC-002.2 | `AC-002.2 interest uses TT200 code 23 and TT99 code 24, never TT99 code 23` · `AC-002.2 balance sheet codes that moved in TT99` |
-| AC-002.3 | `AC-002.3 TT99-only lines exist only in TT99 and belong to a group` (T-002); adding into group totals is checked in T-003 |
-| AC-003.1–4 | `AC-003.1 assets vs resources mismatch 22.38` · `AC-003.2 sub-lines vs group` · `AC-003.3 positive allowance warning` · `AC-003.4 PBT B02 vs B03` |
+| AC-002.3 | `AC-002.3 TT99-only lines exist only in TT99 and belong to a group` (T-002) · `AC-002.3 TT99-only group (biological assets) is counted inside its group` · `AC-002.3 nested levels: a) b) and dash lines` (T-003) |
+| AC-003.1–4 | `AC-003.1 assets vs resources mismatch 22.38` · `AC-003.1 balanced year has no issue and is not marked` · `AC-003.1 missing totals: check skipped` · `AC-003.2 group totals from the catalogue` · `AC-003.2 pasted sub-lines vs group (real CafeF column, receivables off by 6,74)` · `AC-003.3 positive allowance warning; provisions payable are not warned` · `AC-003.4 PBT B02 vs B03` |
 | AC-004.1–2 | `AC-004.1 HPG 2025 current ratio 1.10` · `AC-004.2 zero or missing denominator` |
 | AC-004.3 | manual (click a ratio; formula and inputs shown) — needs the page |
 | AC-005.1–2 | `AC-005.1 Z' for manufacturer, Z'' otherwise, zones` · `AC-005.2 financial firm not applicable` |

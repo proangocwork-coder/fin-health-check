@@ -1,14 +1,14 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-09
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-10
 Tier: T1 · Stage: Development (G4 loop) · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
-T-001, T-002 done. T-002: `src/lines.js` catalogue of 39 lines with TT200 / TT99 codes, default template by fiscal year, matching pasted rows by name (accents, numbering, case, site typos ignored). Browser verify PASS 9/9 on the laptop. No task in progress.
+T-001, T-002, T-003 done. T-003: `src/checks.js` (assets vs resources marks the year "số chưa cân"; group sums from the catalogue; pasted B01 sub-lines vs their group by numbering level; positive asset allowance warning; PBT B02 vs B03) and `src/format.js` (Vietnamese number style). Browser verify PASS 20/20 on the laptop. No task in progress.
 
 ## Next
-1. On the personal machine, first step: `node --test` must pass 9/9 (the Node path of the harness is still untested). If it fails, fix the harness before anything else.
-2. T-003 input checks, then T-004 ratios (tasks.md order). T-003 must write explicit sum formulas (catalogue `parent` is not additive).
+1. On the personal machine, first step: `node --test` must pass 20/20 (the Node path of the harness is still untested). If it fails, fix the harness before anything else.
+2. T-004 ratios, then T-005 / T-006 / T-007 (tasks.md order).
 3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
@@ -19,7 +19,7 @@ T-001, T-002 done. T-002: `src/lines.js` catalogue of 39 lines with TT200 / TT99
 - Company laptop has no Node.js; it verifies with `tools\verify-browser.cmd` (Edge headless). The browser pane of Claude cannot open `file://` pages, so UI checks there are done by the Owner.
 
 ## Verify
-Command: `node --test` (personal machine) · `tools\verify-browser.cmd` (laptop) · Last result: laptop browser PASS 9/9 (2026-11-19, after T-002); Node not run yet
+Command: `node --test` (personal machine) · `tools\verify-browser.cmd` (laptop) · Last result: laptop browser PASS 20/20 (2026-11-19, after T-003); Node not run yet
 
 ## Pointers
 Brief: project-memory/BRIEF.md · PRD: project-memory/PRD.md · Architecture: project-memory/ARCHITECTURE.md · Spec: project-memory/features/001-metrics-and-scores/spec.md · Flags: project-memory/FLAG_RULES.md · Tasks: project-memory/tasks.md · Risks: project-memory/RISKS.md
