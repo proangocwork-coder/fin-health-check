@@ -16,9 +16,10 @@ Route: R3 (new product) · Tier: T1 · Planned at G3, 2026-11-19 · Sources: PRD
 | T-010 | Save to file / open file (`.json` with schema version and checks), automatic browser draft, "unsaved changes" banner | REQ-001 AC-001.1–2; NFR-003; D-004 | M → | T-009 | todo | |
 | T-011 | Results page: ratios, Z/M/F, flags with reasons, red/yellow counts, industry notes, disclaimer, click a number to see its formula; test that the code makes no network calls | REQ-004 AC-004.3; REQ-008 AC-008.3–4; D-002 Q4; ARCHITECTURE "Security risks" | M → | T-008, T-009 | todo | |
 | T-012 | Print layout A4 portrait | REQ-009 AC-009.1 | S → | T-011 | todo | |
-| T-013 | Owner acceptance: enter PHP, VIC, HPG (2 years each) from audited reports; compare with Owner's Excel; time one entry | NFR-001, NFR-002; BRIEF success 1–3 | M → | T-012; Owner's Excel | waiting_owner (Owner's Excel) | |
+| T-014 [P] | Reference check (D-005): in a **separate session that does not read `src/`**, take PHP, VIC, HPG figures for 3 balance-sheet dates and 2 years from the audited reports (PDF), compute every ratio, Z, M, F and flag in a spreadsheet with visible formulas from spec 001 and the original papers; list 5 numbers for the Owner to spot-check against the PDFs | NFR-001; D-005 | M → | T-008 (flag rules final) | todo | |
+| T-013 | Acceptance: enter PHP, VIC, HPG (2 years each) in the app; compare every number with the T-014 reference (≤ 0,01); Owner spot-checks 5 reference numbers against the PDFs; **Owner times one entry** (NFR-002) | NFR-001, NFR-002; BRIEF success 1–3 | M → | T-012, T-014 | todo | |
 
-Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) → T-008 → T-009 → T-010 → T-011 → T-012 → T-013. Riskiest first after setup: T-002 (template mapping) because a wrong mapping silently corrupts every number.
+Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) → T-008 → T-009 → T-010 → T-011 → T-012 → T-013. T-014 can run any time after T-008, in its own session (D-005). Riskiest first after setup: T-002 (template mapping) because a wrong mapping silently corrupts every number.
 
 **Estimate** [ASSUMPTION, PD-04 buffer 30–50%]: 2 S + 9 M + 2 L. If one session completes about two S/M tasks or one L task, the build needs about 6 sessions, 8–9 with buffer. This is larger than the BRIEF guess (2–4 build sessions); the gap comes from REQ-002 and REQ-003, added at G1 after the data test.
 
@@ -45,7 +46,7 @@ Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) →
 | AC-008.3–4 | `AC-008.3 industry note attached to related flags` · manual: disclaimer visible on screen and print |
 | AC-009.1 | manual (print preview A4 portrait, no cut columns) |
 | AC-010.1 | `AC-010.1 qualified opinion turns F18 red; unset is not computable` |
-| NFR-001 | manual (T-013, compare with Owner's Excel, tolerance 0.01) |
+| NFR-001 | manual (T-013, compare with the T-014 reference, tolerance 0.01; Owner spot-checks 5 reference numbers) |
 | NFR-002 | manual (T-013, stopwatch) |
 
 ## Defects

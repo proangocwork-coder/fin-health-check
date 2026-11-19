@@ -81,7 +81,7 @@ Priority: MVP · Source: `FLAG_RULES.md` nhóm G
 ## Non-functional
 | ID | Area (ISO/IEC 25010) | Requirement | Target |
 |---|---|---|---|
-| NFR-001 | Correctness | Kết quả khớp Excel của Owner | Sai khác ≤ 0,01 ở chỉ số và điểm, cho cả 3 công ty |
+| NFR-001 | Correctness | Kết quả khớp bảng đối chiếu độc lập (D-005: agent làm ở phiên riêng, không đọc mã app; Owner dò 5 số với báo cáo gốc) | Sai khác ≤ 0,01 ở chỉ số và điểm, cho cả 3 công ty |
 | NFR-002 | Usability | Thời gian nhập 3 báo cáo × 2 năm | ≤ 20 phút với Owner (đo lại ở G4 bằng đồng hồ) |
 | NFR-003 | Reliability | Dữ liệu đã lưu không mất khi đóng máy | 0 lần mất dữ liệu trong pilot |
 | NFR-004 | Portability | Chạy trên Windows 10 của Owner, không cần mạng khi dùng | Đạt / không đạt |
@@ -119,6 +119,7 @@ Không còn. Q1–Q5 đã trả lời ở G1 (D-002, Owner giữ mọi mặc đ�
 | Date | Change | Decision |
 |---|---|---|
 | 2026-11-19 | G1 duyệt; ghi câu trả lời Q1–Q5 (không đổi nghĩa yêu cầu nào) | D-002 |
+| 2026-11-19 | NFR-001: bảng đối chiếu do agent làm ở phiên riêng thay cho Excel của Owner (Owner: "m tự làm kiểm tra đi"); NFR-002 không đổi | D-005 |
 
 ## Quality check before G1
 - [x] Every requirement traces to the brief (REQ-002, REQ-003 từ kết quả kiểm ở G1 mà BRIEF yêu cầu).

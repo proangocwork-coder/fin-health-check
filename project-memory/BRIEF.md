@@ -9,7 +9,7 @@ Owner làm tư vấn tài chính (CFO, kiểm soát nội bộ) và muốn đán
 Chỉ Owner, trên máy cá nhân. Không có khách hàng dùng trực tiếp ở bản này.
 
 ## Success measure
-1. Với 3 công ty niêm yết (báo cáo công khai, 2–5 năm), mọi chỉ số, Z, M, F của app khớp bảng tính Excel Owner tự làm (sai khác chỉ do làm tròn).
+1. Với 3 công ty niêm yết (báo cáo công khai, 2–5 năm), mọi chỉ số, Z, M, F của app khớp bảng tính Excel Owner tự làm (sai khác chỉ do làm tròn). *Đổi 2026-11-19 (D-005): bảng đối chiếu do agent làm ở phiên riêng, Owner dò 5 số.*
 2. Nhập 3 báo cáo của một công ty cho 2 năm mất ≤ 20 phút.
 3. Mỗi cờ cảnh báo ghi rõ quy tắc nào bật nó và từ số nào, Owner kiểm lại được.
 4. Về Handbook (PILOT-01): số lần agent báo "xong" sai = 0.

@@ -1,6 +1,6 @@
 # Risks: Financial Health Check (internal)
 
-Last reviewed: 2026-11-19 at G3
+Last reviewed: 2026-11-19 at G3; PR-08, PR-09 updated 2026-11-19 (D-005)
 
 | ID | Risk | Likelihood (L/M/H) | Impact (L/M/H) | Action | Trigger to review | Status |
 |---|---|---|---|---|---|---|
@@ -11,4 +11,5 @@ Last reviewed: 2026-11-19 at G3
 | PR-05 | Owner forgets "Lưu ra file" and loses entries | M | L | reduce: browser draft + unsaved banner (T-010); data is public and re-enterable | T-010 done | open |
 | PR-06 | Z, M, F (built on US data) read as verdicts on Vietnamese firms | M | M | reduce: disclaimer and industry notes on every result (AC-008.3–4) | T-011 done | open |
 | PR-07 | Usage limit of the Claude plan reached mid-task | M | L | watch: one task per checkpoint; tasks sized for one session | any session stopped by the limit | open |
-| PR-08 | Owner's reference Excel for PHP, VIC, HPG not ready when the build ends | M | M | watch: ask at T-008; T-013 stays `waiting_owner` until it exists | T-012 done | open |
+| PR-08 | Owner's reference Excel for PHP, VIC, HPG not ready when the build ends | M | M | watch: ask at T-008; T-013 stays `waiting_owner` until it exists | T-012 done | closed (2026-11-19, D-005: agent builds the reference) |
+| PR-09 | The reference check (T-014) and the app share the same misreading of a formula, so a wrong number passes (D-005) | M | H | reduce: T-014 in a separate session that does not read `src/`; formulas taken from the original papers, not from the app; Owner spot-checks 5 numbers against the PDFs | T-014 done | open |

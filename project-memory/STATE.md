@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-12
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-13
 Tier: T1 · Stage: Development (G4 loop) · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
@@ -8,11 +8,12 @@ T-001 to T-007 done. T-005 `src/altman.js` (Z' / Z'' by company type, zones; HPG
 
 ## Next
 1. On the personal machine, first step: `node --test` must pass 47/47 (the Node path of the harness is still untested). If it fails, fix the harness before anything else.
-2. T-008 flag engine F01–F18 (L): uses ratios, Z, M, F and the audit opinion. Ask the Owner about the reference Excel (PR-08).
+2. T-008 flag engine F01–F18 (L): uses ratios, Z, M, F and the audit opinion.
+3. D-005 (2026-11-19, Owner: "m tự làm kiểm tra đi"): the agent builds the reference check (new T-014) in a separate session that does not read `src/`; T-013 compares the app with it, the Owner spot-checks 5 numbers and still times one entry (NFR-002).
 3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
-- Nothing blocking. Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002); start the reference Excel from audited reports (needed at T-013).
+- Nothing blocking. At T-013: spot-check 5 reference numbers against the PDFs and time one entry with a stopwatch (NFR-002).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
