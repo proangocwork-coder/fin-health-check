@@ -5,7 +5,7 @@ Route: R3 (new product) · Tier: T1 · Planned at G3, 2026-11-19 · Sources: PRD
 | ID | Task | Serves | Size (est → actual) | Depends | State | Evidence |
 |---|---|---|---|---|---|---|
 | T-001 | Setup: ignore file, folder layout, README, test runner that works in a browser page and in `node --test`, one empty test passing | G3 | M → M | — | done | `tools\verify-browser.cmd` on the company laptop: RESULT: PASS 2/2, exit 0; deliberately broken test gave FAIL 1/2, exit 1 (2026-11-19). `node --test` not yet run (no Node.js on the laptop): first step of the next session on the personal machine |
-| T-002 | Line catalogue TT200 / TT99: name + code per template, default template by fiscal year, matching pasted rows by name | REQ-002 AC-002.1–3; AC-001.3 (matching part) | M → | T-001 | todo | |
+| T-002 | Line catalogue TT200 / TT99: name + code per template, default template by fiscal year, matching pasted rows by name | REQ-002 AC-002.1–3; AC-001.3 (matching part) | M → M | T-001 | done | `src/lines.js`; `tests/lines.test.js` 7 tests seen failing first (FAIL 2/9), then `tools\verify-browser.cmd` PASS 9/9, exit 0 (laptop, 2026-11-19). Node path not run. Note for T-003: `parent` is form grouping, not an additive formula |
 | T-003 | Input checks: assets = resources, sub-lines sum to group, positive allowance warning, PBT B02 = B03 | REQ-003 AC-003.1–4 | M → | T-002 | todo | |
 | T-004 | Ratio table calculation with "Không tính được" handling | REQ-004 AC-004.1–2; spec §2 | M → | T-002 | todo | |
 | T-005 [P] | Altman Z' / Z'' by company type, zones, "Không áp dụng" for financial firms | REQ-005 AC-005.1–2; spec §3 | S → | T-004 | todo | |
