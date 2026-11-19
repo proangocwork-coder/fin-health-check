@@ -39,13 +39,36 @@
     button.cell { border: none; background: none; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-decoration: underline dotted; }
     button.cell.noted::after { content: " *"; color: var(--muted); }
     .detail { background: var(--bg); padding: 8px; border-radius: 6px; }
+    header a { font-size: 13px; }
+    .demo-banner { background: #e8f0fe; color: #1a4fa0; padding: 8px 12px; border-radius: 6px; margin-bottom: 16px; }
+    @page { size: A4 portrait; margin: 12mm; }
+    @media print {
+      body { background: #fff; font-size: 10px; }
+      header { padding: 0 0 6px; border: none; }
+      header a, .demo-banner, .no-print, main > .card:not(.results) { display: none !important; }
+      main { max-width: none; padding: 0; }
+      .card { border: none; padding: 0; margin: 0; }
+      .scroll { overflow: visible; }
+      table.grid { width: 100%; table-layout: fixed; }
+      table.grid th, table.grid td { padding: 2px 4px; font-size: 9px; word-wrap: break-word; }
+      table.ratios td.code, table.ratios th:nth-child(2) { width: 30%; }
+      button.cell { text-decoration: none; color: #000; }
+      button.cell.noted::after { content: ""; }
+      .detail { display: none; }
+      h2 { font-size: 13px; } h3 { font-size: 11px; margin: 8px 0 4px; }
+      li.flag { font-size: 9px; margin-bottom: 1px; }
+      tr, li { break-inside: avoid; }
+      .disclaimer { border: 1px solid #000; padding: 4px; }
+    }
     .warning-banner { background: var(--yellow-bg); color: var(--yellow); padding: 6px 10px; border-radius: 6px; margin: 8px 0 0; }
   </style>
 </head>
 <body>
   <header>
     <h1>Financial Health Check (bản nội bộ)</h1>
-    <p>Tín hiệu để hỏi tiếp, không phải kết luận và không phải gợi ý mua bán cổ phiếu.</p>
+    <p>Tín hiệu để hỏi tiếp, không phải kết luận và không phải gợi ý mua bán cổ phiếu.
+      <span class="no-print"><a href="index.html?demo" id="demo-link">Xem ví dụ HPG</a> · <a href="index.html">Dữ liệu của tôi</a> ·
+      In kết quả: Ctrl + P (chỉ in phần Kết quả, khổ A4 dọc)</span></p>
   </header>
   <main id="app"></main>
 
@@ -62,10 +85,23 @@
   <script src="src/ui.js"></script>
   <script src="src/storage.js"></script>
   <script src="src/results.js"></script>
+  <script src="src/sample.js"></script>
   <script>
-    var storage = null;
-    try { storage = window.localStorage; } catch (e) { storage = null; }
-    FHC.ui.mount(document.getElementById('app'), { storage: storage });
+    (function () {
+      var demo = /[?&]demo\b/.test(window.location.search);
+      var storage = null;
+      // Demo mode never touches the Owner's draft.
+      if (!demo) { try { storage = window.localStorage; } catch (e) { storage = null; } }
+      var main = document.getElementById('app');
+      var app = FHC.ui.mount(main, { storage: storage });
+      if (demo) {
+        app.openText(FHC.storage.serialize(FHC.sample.hpg()));
+        var note = document.createElement('p');
+        note.className = 'demo-banner';
+        note.textContent = 'Đang xem VÍ DỤ HPG (số CafeF, chưa đối chiếu báo cáo kiểm toán). Thay đổi ở đây không được giữ lại. Bấm "Dữ liệu của tôi" ở trên để quay về.';
+        main.parentNode.insertBefore(note, main);
+      }
+    })();
   </script>
 </body>
 </html>
