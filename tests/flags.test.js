@@ -95,10 +95,26 @@
     A.equal(flag(r, 2025, 'F13').level, 'red');
   });
 
-  T.test('F16 and F17 need two years; first year is not computable', function () {
-    var r = FL().evaluate(hpg());
-    A.equal(flag(r, 2024, 'F16').level, 'missing');
-    A.equal(flag(r, 2024, 'F17').level, 'missing');
+  T.test('F16 needs two years; first year is not computable', function () {
+    A.equal(flag(FL().evaluate(hpg()), 2024, 'F16').level, 'missing');
+  });
+
+  T.test('F17 on a partial Piotroski score (FLAG_RULES note, Owner "Vẫn bật"): threshold applied to the computable criteria', function () {
+    var c = hpg();
+    c.years.unshift({ year: 2023, values: { totalAssets: 187782.59 } });
+    c.years[1].values.cfo = 6600; c.years[1].values.shareIssue = 0;
+    c.years[1].values.longBorrowings = 30000; c.years[1].values.currentLiabilities = 75225.24;
+    var f = flag(FL().evaluate(c), 2024, 'F17');
+    var p = FHC.scores.piotroski(c.years)[2024];
+    A.ok(p.computable > 0 && p.computable < 9, 'partial score: ' + p.display);
+    A.equal(f.level, p.value <= 3 ? 'yellow' : 'none');
+    A.ok(f.reason.indexOf(p.value + '/' + p.computable + ' tiêu chí tính được') >= 0, f.reason);
+  });
+
+  T.test('F17 with no computable criterion stays "Không tính được"', function () {
+    var c = hpg();
+    c.years[0].values = { totalAssets: 1 };
+    A.equal(flag(FL().evaluate(c), 2024, 'F17').level, 'missing');
   });
 
   T.test('AC-010.1 audit opinion: qualified red, emphasis yellow, unset not computable', function () {

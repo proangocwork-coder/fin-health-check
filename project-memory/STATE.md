@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-15
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-16
 Tier: T1 · Stage: Development (G4 loop) · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
@@ -8,21 +8,20 @@ T-001 to T-012 done: the app is usable end to end (enter / paste, checks, save /
 
 ## Next
 1. On the personal machine, first step: `node --test` must pass (browser-only tests skip under Node; the static "no network API in src/" test runs only there). The Node path of the harness is still untested. If it fails, fix the harness before anything else.
-2. T-014 done by a separate session (commit d160d7d, `project-memory/reference/T-014/`). T-013 agent part done: 389/396 cells match the reference exactly; 7 differences are conventions (X5 for Z''; F17 on a partial Piotroski score in the first year). Waiting on the Owner for the rest of T-013 (see "Waiting on Owner").
+2. T-014 done by a separate session (commit d160d7d, `project-memory/reference/T-014/`). T-013 agent part done: after D-006 (F17 on a partial Piotroski score, Owner "Vẫn bật") the app matches the reference in 392/396 cells; the 4 left are X5 shown "Không áp dụng" under Z''. Owner spot-checked the 5 reference numbers: 5/5 correct. Browser verify PASS 99/99.
 3. Then G4 report (TPL-GATE-REPORT) and retro (TPL-RETRO) to close WP-07.
 4. D-005 (2026-11-19, Owner: "m tự làm kiểm tra đi"): the agent builds the reference check (new T-014) in a separate session that does not read `src/`; T-013 compares the app with it, the Owner spot-checks 5 numbers and still times one entry (NFR-002).
 3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
-- T-013: spot-check the 5 numbers listed in `project-memory/reference/T-014/README.md` against the PDFs; time one entry of one company (2 years) with a stopwatch (NFR-002, target ≤ 20 minutes); click "Lưu ra file" then "Mở file" once; print once (Ctrl + P).
-- Optional decision: F17 in a year where fewer than 9 Piotroski criteria are computable — keep "Không tính được" (app now, recommended) or apply "≤ 3" to the partial score (reference).
+- T-013: time one entry of one company (2 years) with a stopwatch (NFR-002, target ≤ 20 minutes); click "Lưu ra file" then "Mở file" once; print once (Ctrl + P).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
 - Company laptop has no Node.js; it verifies with `tools\verify-browser.cmd` (Edge headless). The browser pane of Claude cannot open `file://` pages, so UI checks there are done by the Owner.
 
 ## Verify
-Command: `node --test` (personal machine) · `tools\verify-browser.cmd` (laptop) · Last result: laptop browser PASS 97/97 (2026-11-19, after T-012); Node not run yet
+Command: `node --test` (personal machine) · `tools\verify-browser.cmd` (laptop) · Last result: laptop browser PASS 99/99 (2026-11-19, after D-006); reference comparison 392/396; Node not run yet
 
 ## Pointers
 Brief: project-memory/BRIEF.md · PRD: project-memory/PRD.md · Architecture: project-memory/ARCHITECTURE.md · Spec: project-memory/features/001-metrics-and-scores/spec.md · Flags: project-memory/FLAG_RULES.md · Tasks: project-memory/tasks.md · Risks: project-memory/RISKS.md

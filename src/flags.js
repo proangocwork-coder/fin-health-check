@@ -193,9 +193,11 @@
       return result(level, 'M = ' + n(m.value), { yellow: 'Vàng khi −2,22 – −1,78', red: 'Đỏ khi > −1,78' });
     },
     F17: function (c) {
+      // FLAG_RULES note (Owner, 2026-11-19, "Vẫn bật"): with fewer than 9 computable criteria,
+      // the threshold still applies to the partial score, shown as "x/n tiêu chí tính được".
       var f = c.piotroski;
-      if (f.computable < 9) return missing('chỉ tính được ' + f.computable + '/9 tiêu chí');
-      return result(f.value <= 3 ? 'yellow' : 'none', 'F = ' + f.value + '/9', { yellow: 'Vàng khi ≤ 3' });
+      if (!f.computable) return missing('không tiêu chí nào tính được');
+      return result(f.value <= 3 ? 'yellow' : 'none', 'F = ' + f.display, { yellow: 'Vàng khi ≤ 3' });
     },
     F18: function (c) {
       var o = c.opinion;
