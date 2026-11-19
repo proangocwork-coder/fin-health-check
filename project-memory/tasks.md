@@ -11,7 +11,7 @@ Route: R3 (new product) · Tier: T1 · Planned at G3, 2026-11-19 · Sources: PRD
 | T-005 [P] | Altman Z' / Z'' by company type, zones, "Không áp dụng" for financial firms | REQ-005 AC-005.1–2; spec §3 | S → S | T-004 | done | `src/altman.js`; `tests/altman.test.js` 5 tests seen failing first, then pass; HPG 2025 Z' ≈ 1,49 (vùng xám). Committed together with T-006, T-007 (shared tests.html); full run PASS 47/47 (laptop, 2026-11-19). Node path not run |
 | T-006 [P] | Beneish M with the 8 sub-indices | REQ-006 AC-006.1–2; spec §4 | M → S | T-004 | done | `src/beneish.js`; `tests/beneish.test.js` 6 tests seen failing first, then pass (identical years give M = −2,48; DSRI 2 gives −1,56). Full run PASS 47/47 |
 | T-007 [P] | Piotroski F with per-criterion pass / fail / not computable | REQ-007 AC-007.1; spec §5 | M → M | T-004 | done | `src/piotroski.js`; `tests/piotroski.test.js` 5 tests seen failing first, then pass. Self-review found a zero-denominator case read as "pass"; a 6th test reproduced it (FAIL 46/47), fixed, PASS 47/47 |
-| T-008 | Flag engine F01–F18 with reason line (rule, numbers, years, threshold); audit opinion input drives F18 | REQ-008 AC-008.1–2; REQ-010 AC-010.1; FLAG_RULES 0.2 | L → | T-004, T-005, T-006, T-007 | todo | |
+| T-008 | Flag engine F01–F18 with reason line (rule, numbers, years, threshold); audit opinion input drives F18 | REQ-008 AC-008.1–2; REQ-010 AC-010.1; FLAG_RULES 0.2 | L → M | T-004, T-005, T-006, T-007 | done | `src/flags.js` (18 flags, reason line per flag, red/yellow counts, industry notes, disclaimer); `tests/flags.test.js` 15 tests seen failing first (FAIL 47/62), then PASS 62/62 (laptop, 2026-11-19). Node path not run |
 | T-009 | Entry page: type or paste per year, unit choice, empty ≠ 0, template per year, company type, audit opinion | REQ-001 AC-001.3–5; AC-002.1; REQ-010 | L → | T-002, T-003 | todo | |
 | T-010 | Save to file / open file (`.json` with schema version and checks), automatic browser draft, "unsaved changes" banner | REQ-001 AC-001.1–2; NFR-003; D-004 | M → | T-009 | todo | |
 | T-011 | Results page: ratios, Z/M/F, flags with reasons, red/yellow counts, industry notes, disclaimer, click a number to see its formula; test that the code makes no network calls | REQ-004 AC-004.3; REQ-008 AC-008.3–4; D-002 Q4; ARCHITECTURE "Security risks" | M → | T-008, T-009 | todo | |
@@ -42,10 +42,10 @@ Order: T-001 → T-002 → T-003 / T-004 → T-005, T-006, T-007 (any order) →
 | AC-005.1–2 | `AC-005.1 manufacturer uses Z' (HPG 2025, grey zone)` · `AC-005.1 non-manufacturing uses Z'' with its own zones` · `zone boundaries` · `AC-005.2 financial firms: not applicable` · `missing line: not computable` |
 | AC-006.1–2 | `AC-006.1 one year only: needs 2 years` · `AC-006.2 identical years: all indices 1, TATA 0, M = -2.48` · `AC-006.2 receivables doubling moves DSRI to 2` · `TATA` · `zero denominator in one index` · `missing line in either year is named` |
 | AC-007.1 | `AC-007.1 missing year t-2: criteria 3, 5, 9 not computable` · `AC-007.1 a missing criterion never counts as 0 points silently` · `zero denominator: criterion not computable` · `all nine criteria pass` · `criterion 7` · `criterion 4 / criterion 1` |
-| AC-008.1–2 | `AC-008.1 F01 yellow with reason line for HPG 2025` · `AC-008.2 missing data flag says not computable` |
-| AC-008.3–4 | `AC-008.3 industry note attached to related flags` · manual: disclaimer visible on screen and print |
+| AC-008.1–2 | `AC-008.1 HPG 2025: F01 yellow with the exact reason line` · `HPG 2025: F03, F04 not raised; F10 red; F15 yellow` · `AC-008.2 missing data` · F03/F04, F05, F06, F09, F13/F14, F16/F17 tests · `financial firms` · `D-002 Q4 counts` · `all 18 flags produced in order` |
+| AC-008.3–4 | `AC-008.3 industry note attached to related flags only` · `AC-008.4 disclaimer text`; manual: disclaimer visible on screen and print |
 | AC-009.1 | manual (print preview A4 portrait, no cut columns) |
-| AC-010.1 | `AC-010.1 qualified opinion turns F18 red; unset is not computable` |
+| AC-010.1 | `AC-010.1 audit opinion: qualified red, emphasis yellow, unset not computable` |
 | NFR-001 | manual (T-013, compare with the T-014 reference, tolerance 0.01; Owner spot-checks 5 reference numbers) |
 | NFR-002 | manual (T-013, stopwatch) |
 
