@@ -1,6 +1,6 @@
 # D-003 Nền tảng: ứng dụng trình duyệt thuần, mở bằng file, không cần cài đặt
 
-Status: proposed · Date: 2026-11-19 · Category: APPROVAL (công nghệ nền ở T1, FD-03 §6)
+Status: approved · Date: 2026-11-19 · Category: APPROVAL (công nghệ nền ở T1, FD-03 §6)
 
 **Context:** G2 của dự án T1. Owner dùng một mình, trên máy Windows của mình, không cần mạng (NFR-004), 0 đồng (NFR-005), cần in được (REQ-009), dán số từ bảng tính (AC-001.3). Owner làm việc trên hai máy: máy cá nhân (Windows 10, có Node.js 24 [MACHINE_SETUP, kiểm 2026-11-18]) và laptop công ty (Windows 11, **không có Node.js**, kiểm 2026-11-19; cài phần mềm cần IT cho phép). Owner không lập trình nên cách chạy phải là "bấm đúp là mở".
 
@@ -20,4 +20,4 @@ Status: proposed · Date: 2026-11-19 · Category: APPROVAL (công nghệ nền �
 **Reversibility:** một đến hai phiên để chuyển sang B (phần tính toán giữ nguyên, chỉ thay phần lưu và mở).
 **Pros and cons:** A — 0 đồng, không cài, rủi ro chính: dữ liệu chưa lưu ra file có thể mất (D-004 xử lý). B — tự lưu xuống đĩa, nhưng cần Node.js trên mọi máy dùng app, Owner phải giữ một cửa sổ lệnh mở, rủi ro mở cổng mạng nếu cấu hình sai. C — Owner tự sửa được, nhưng không kiểm tự động được và lệch mục tiêu chạy thử Handbook.
 
-**Approval:** chờ Owner (G2).
+**Approval:** Owner, 2026-11-19, nguyên văn: "Duyệt G2" (duyệt cả D-003 và D-004 trong báo cáo G2) · Resume point: CP-20261119-07

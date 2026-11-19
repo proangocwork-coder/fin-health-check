@@ -1,6 +1,6 @@
 # D-004 Lưu dữ liệu: mỗi công ty một file do Owner lưu và mở, kèm bản nháp tự động trong trình duyệt
 
-Status: proposed · Date: 2026-11-19 · Category: APPROVAL (nơi lưu dữ liệu là lựa chọn nền, đi cùng D-003)
+Status: approved · Date: 2026-11-19 · Category: APPROVAL (nơi lưu dữ liệu là lựa chọn nền, đi cùng D-003)
 
 **Context:** REQ-001 (nhập 2–5 năm, mở lại thấy đúng số), NFR-003 (0 lần mất dữ liệu trong pilot). Với D-003 (trình duyệt thuần), trang không tự ghi file xuống ổ đĩa. Dữ liệu chỉ là báo cáo công khai, nhập lại được (PRINCIPLES).
 
@@ -20,4 +20,4 @@ Status: proposed · Date: 2026-11-19 · Category: APPROVAL (nơi lưu dữ liệ
 **Reversibility:** dễ; đổi cách lưu không đổi phần tính toán, file `.json` chuyển đổi được.
 **Data location rule:** file dữ liệu của Owner **không** đưa vào repo GitHub; chỉ file mẫu với số bịa hoặc số công khai dùng cho test (PRINCIPLES "No client financial statements").
 
-**Approval:** chờ Owner (G2).
+**Approval:** Owner, 2026-11-19, nguyên văn: "Duyệt G2" (duyệt cả D-003 và D-004 trong báo cáo G2) · Resume point: CP-20261119-07

@@ -1,6 +1,6 @@
 # Architecture: Financial Health Check (internal)
 
-Tier T1 · Updated 2026-11-19 · Status: proposed (chờ duyệt G2)
+Tier T1 · Updated 2026-11-19 · Status: approved (G2, 2026-11-19, D-003, D-004)
 
 ## Drivers
 - Chạy trên Windows của Owner, không cần mạng, không cài đặt; dùng được trên cả máy cá nhân và laptop công ty (NFR-004)
@@ -29,8 +29,8 @@ Thư mục dự án trên máy Owner; dùng app = bấm đúp `index.html`. Khô
 - **Dữ liệu nếu lộ hoặc mất:** chỉ là báo cáo công khai, nhập lại được. Báo cáo của khách hàng không được đưa vào (PRINCIPLES); nếu muốn thì phải xếp tầng lại.
 
 ## Decisions
-- D-003 Nền tảng: ứng dụng trình duyệt thuần (proposed)
-- D-004 Lưu dữ liệu: file mỗi công ty + bản nháp tự động (proposed)
+- D-003 Nền tảng: ứng dụng trình duyệt thuần (approved 2026-11-19)
+- D-004 Lưu dữ liệu: file mỗi công ty + bản nháp tự động (approved 2026-11-19)
 
 ## Simplicity check (EN-01 §4.6)
 - [x] Every container and external service traces to a driver (không có dịch vụ ngoài).

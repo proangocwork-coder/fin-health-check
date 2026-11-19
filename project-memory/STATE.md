@@ -1,15 +1,14 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 3 (VIBEOS, company laptop) · Checkpoint: CP-20261119-06
-Tier: T1 · Stage: Design · Last gate passed: G1 (2026-11-19, D-002) · **awaiting_approval: G2**
+Updated: 2026-11-19 by WP-07 session 3 (VIBEOS, company laptop) · Checkpoint: CP-20261119-07
+Tier: T1 · Stage: Development prep · Last gate passed: G2 (2026-11-19, D-003, D-004)
 
 ## Now
-G2 package written and sent: `ARCHITECTURE.md` (proposed), D-003 platform = plain browser app opened from a file, no install, calculations in separate plain JavaScript files tested with Node's built-in test runner; D-004 data = one `.json` file per company saved/opened by the Owner, plus an automatic draft in the browser. Both APPROVAL, status proposed. No code, no dependency until approved.
+G2 approved (Owner's words: "Duyệt G2"). `ARCHITECTURE.md` approved; D-003 plain browser app opened from a file, calculations in separate plain JavaScript files tested with Node's built-in test runner; D-004 one `.json` file per company plus an automatic browser draft. Session 3 closed. No code yet.
 
 ## Next
-1. On approval: D-003, D-004 → approved with the Owner's exact words; ARCHITECTURE status approved.
-2. G3: `plan-tasks` → tasks.md, RISKS.md; .gitignore (data files out of the repo); empty project with `node --test` passing; TT99 line-code map from Phụ lục IV of the original circular.
-3. Before G4: Owner's own Excel for PHP, VIC, HPG from audited reports (success measure 1, NFR-001).
+1. G3 (next session, personal machine): `plan-tasks` → tasks.md, RISKS.md; .gitignore (data files out of the repo); empty project with `node --test` passing; TT99 line-code map from Phụ lục IV of the original circular.
+2. Before G4: Owner's own Excel for PHP, VIC, HPG from audited reports (success measure 1, NFR-001).
 
 ## Environment note
 Company laptop (Windows 11) has no Node.js (checked 2026-11-19): automated tests run on the personal machine only. G3 onwards should run there unless the Owner later approves a portable Node.js on the laptop.
@@ -20,8 +19,7 @@ Company laptop (Windows 11) has no Node.js (checked 2026-11-19): automated tests
 - Data entry time for the Owner (NFR-002, riskiest assumption) is still NOT measured: the agent pulled ~80% of FY2025 lines in ~2 minutes, which says nothing about the Owner's time.
 
 ## Waiting on Owner
-- Approve G2 (D-003, D-004).
-- Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002).
+- Nothing blocking. Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
