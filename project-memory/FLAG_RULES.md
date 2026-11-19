@@ -68,6 +68,19 @@ EBIT = LNTT + Lãi vay · EBITDA = EBIT + Khấu hao · Nợ vay = Vay NH + Vay 
 - **Tập đoàn đa ngành, có mua bán công ty con trong năm**: tăng trưởng doanh thu, tài sản nhảy vọt → F10, F11, F16 (biến SGI, AQI) dễ bật sai.
 - **Dịch vụ hạ tầng** (VD: cảng như PHP): tài sản cố định lớn, HTK nhỏ → F02, F11 ít ý nghĩa; chú ý F04 và F06.
 
+## Chạy thử bằng tay trên HPG 2025 (G1, 2026-11-19; số CafeF, tỷ đồng, chưa đối chiếu báo cáo kiểm toán)
+| Cờ | Giá trị | Kết quả theo ngưỡng 0.1 |
+|---|---|---|
+| F01 | 103.682,04 / 94.208,65 = 1,10 | **Vàng** |
+| F03 | (18.040,59 + 3.114,86) / 3.114,86 = 6,79 | không bật |
+| F04 | 92.174,15 / 29.623,71 = 3,11 | không bật |
+| F07 | CFO / LNST = 1,01 | không bật |
+| F08 | (15.514,93 − 15.693,90) / 241.194,46 = −0,07% | không bật |
+| F10 | tổng phải thu NH +96,7% so với DTT +12,4% → chênh 84,3 điểm | **Đỏ** nếu dùng tổng phải thu; chưa tính được với phải thu khách hàng (thiếu số 2024) |
+| F11 | HTK +14,6% so với GVHB +9,4% → chênh 5,3 điểm | không bật |
+| F13 | Biên gộp 15,69% so với 13,32% (tăng) | không bật |
+Nhận xét: F10 bật Đỏ chủ yếu vì cách chọn dòng phải thu (tổng phải thu lẫn trả trước người bán, phải thu khác), nên PRD hỏi Owner ở Q2.
+
 ## Owner cần trả lời ở G1
 1. Ngưỡng nào Owner muốn đổi? (đặc biệt F01, F04, F08, F10)
 2. Có cờ nào Owner hay dùng mà bảng này thiếu không?
