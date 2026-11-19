@@ -1,42 +1,47 @@
 # Spec 001: Chỉ số, Altman Z, Beneish M, Piotroski F
 
-Version 0.2 · Date 2026-11-19 · Status: approved cùng PRD 0.2 (G1, D-002) · Phục vụ REQ-004 đến REQ-007
+Version 0.3 · Date 2026-11-19 · Status: approved cùng PRD 0.2 (G1, D-002); 0.3 chỉ điền cột mã TT99 đã hẹn ở G1, không đổi nghĩa · Phục vụ REQ-002, REQ-004 đến REQ-007
 
-Quy ước: "t" = năm đang xét, "t−1" = năm trước. "bq" = bình quân số đầu năm và cuối năm. Thiếu số → "Không tính được" + tên dòng thiếu (REQ-004 AC-004.2). Mã số dòng ghi theo **TT200**; tên dòng là khoá chính, mã TT99 bổ sung ở G3 từ Phụ lục IV văn bản gốc (PRD "Kiểm thông tư").
+Quy ước: "t" = năm đang xét, "t−1" = năm trước. "bq" = bình quân số đầu năm và cuối năm. Thiếu số → "Không tính được" + tên dòng thiếu (REQ-004 AC-004.2). Mã số ghi trong phần công thức dưới đây theo **TT200**; với năm theo TT99, đọc mã ở cột phải của bảng §1. Tên dòng là khoá chính.
 
 ## 1. Dòng dữ liệu cần nhập (tối thiểu)
 
-| Tên ngắn | Dòng báo cáo | Mã TT200 | Ghi chú TT99 |
+Mã TT99 lấy ở G3 (2026-11-19) từ bản sao Phụ lục IV đăng trên expertis.vn [chưa đối chiếu Công báo; nên đối chiếu khi có báo cáo năm 2026 thật]. Dòng có mã khác nhau giữa hai thông tư được **in đậm**.
+
+| Tên ngắn | Dòng báo cáo | Mã TT200 | Mã TT99 |
 |---|---|---|---|
-| TSNH | Tài sản ngắn hạn | B01.100 | giữ 100 [MISA] |
-| Tiền | Tiền và tương đương tiền | B01.110 | giữ 110 [MISA] |
-| Phải thu NH | Các khoản phải thu ngắn hạn | B01.130 | nhóm giữ 130, dòng con dời |
-| Phải thu KH | Phải thu ngắn hạn của khách hàng | B01.131 | |
-| HTK | Hàng tồn kho (dòng nhóm) | B01.140 | |
-| TSCĐ HH | Tài sản cố định hữu hình (giá trị còn lại) | B01.221 | |
-| Tổng TS | Tổng cộng tài sản | B01.270 | dời (khối B thêm nhóm 230) — kiểm ở G3 |
-| Nợ phải trả | Nợ phải trả | B01.300 | |
-| Nợ NH | Nợ ngắn hạn | B01.310 | |
-| Vay NH | Vay và nợ thuê tài chính ngắn hạn | B01.320 | có thể dời vì thêm 313 — kiểm ở G3 |
-| Nợ DH | Nợ dài hạn | B01.330 | |
-| Vay DH | Vay và nợ thuê tài chính dài hạn | B01.338 | kiểm ở G3 |
-| VCSH | Vốn chủ sở hữu | B01.400 | |
-| Vốn góp | Vốn góp của chủ sở hữu | B01.411 | |
-| LNCPP | LNST chưa phân phối | B01.421 | |
-| DTT | Doanh thu thuần | B02.10 | |
-| GVHB | Giá vốn hàng bán | B02.11 | |
-| LN gộp | Lợi nhuận gộp | B02.20 | |
-| Lãi vay | Chi phí lãi vay / Chi phí đi vay | B02.23 | **TT99: mã 24; mã 23 là chi phí tài chính** |
-| CPBH | Chi phí bán hàng | B02.25 | |
-| CPQL | Chi phí quản lý doanh nghiệp | B02.26 | |
-| LN thuần | LN thuần từ HĐKD | B02.30 | công thức 30 đổi ở TT99 |
-| LN khác | Lợi nhuận khác | B02.40 | |
-| LNTT | Tổng LN kế toán trước thuế | B02.50 | |
-| LNST | LN sau thuế TNDN | B02.60 | |
-| Khấu hao | Khấu hao TSCĐ và BĐSĐT | B03.02 | |
-| CFO | LCTT thuần từ HĐKD | B03.20 | |
-| Phát hành CP | Tiền thu từ phát hành cổ phiếu, nhận vốn góp | B03.31 | |
-| Ý kiến KT | Loại ý kiến kiểm toán | nhập tay | REQ-010 |
+| TSNH | Tài sản ngắn hạn | B01.100 | B01.100 |
+| Tiền | Tiền và tương đương tiền | B01.110 | B01.110 |
+| Phải thu NH | Các khoản phải thu ngắn hạn | B01.130 | B01.130 |
+| Phải thu KH | Phải thu ngắn hạn của khách hàng | B01.131 | B01.131 |
+| HTK | Hàng tồn kho (dòng nhóm) | B01.140 | B01.140 |
+| TSCĐ HH | Tài sản cố định hữu hình (giá trị còn lại) | B01.221 | B01.221 |
+| **Tổng TS** | Tổng cộng tài sản | **B01.270** | **B01.280** |
+| Nợ phải trả | Nợ phải trả | B01.300 | B01.300 |
+| Nợ NH | Nợ ngắn hạn | B01.310 | B01.310 |
+| Phải trả NB | Phải trả người bán ngắn hạn | B01.311 | B01.311 |
+| **Vay NH** | Vay và nợ thuê tài chính ngắn hạn | **B01.320** | **B01.321** |
+| Nợ DH | Nợ dài hạn | B01.330 | B01.330 |
+| **Vay DH** | Vay và nợ thuê tài chính dài hạn | **B01.338** | **B01.339** |
+| VCSH | Vốn chủ sở hữu | B01.400 | B01.400 |
+| Vốn góp | Vốn góp của chủ sở hữu | B01.411 | B01.411 |
+| **LNCPP** | LNST chưa phân phối | **B01.421** | **B01.420** |
+| Tổng NV | Tổng cộng nguồn vốn | B01.440 | B01.440 |
+| DTT | Doanh thu thuần | B02.10 | B02.10 |
+| GVHB | Giá vốn hàng bán | B02.11 | B02.11 |
+| LN gộp | Lợi nhuận gộp | B02.20 | B02.20 |
+| **Lãi vay** | Chi phí lãi vay (TT200) / Chi phí đi vay (TT99) | **B02.23** | **B02.24** — mã 23 của TT99 là chi phí tài chính |
+| CPBH | Chi phí bán hàng | B02.25 | B02.25 |
+| CPQL | Chi phí quản lý doanh nghiệp | B02.26 | B02.26 |
+| LN thuần | LN thuần từ HĐKD | B02.30 | B02.30 (công thức cộng khác) |
+| LN khác | Lợi nhuận khác | B02.40 | B02.40 |
+| LNTT | Tổng LN kế toán trước thuế | B02.50 | B02.50 |
+| LNST | LN sau thuế TNDN | B02.60 | B02.60 |
+| LNTT (B03) | Lợi nhuận trước thuế | B03.01 | B03.01 |
+| Khấu hao | Khấu hao TSCĐ và BĐSĐT | B03.02 | B03.02 |
+| CFO | LCTT thuần từ HĐKD | B03.20 | B03.20 |
+| Phát hành CP | Tiền thu từ phát hành cổ phiếu, nhận vốn góp | B03.31 | B03.31 |
+| Ý kiến KT | Loại ý kiến kiểm toán | nhập tay | nhập tay |
 
 Dẫn xuất: EBIT = LNTT + Lãi vay · EBITDA = EBIT + Khấu hao · Nợ vay = Vay NH + Vay DH · Vốn lưu động = TSNH − Nợ NH.
 Hai năm báo cáo cho ba thời điểm Bảng cân đối (cuối t, cuối t−1, và đầu t−1 lấy từ cột "số đầu năm"), đủ cho số bình quân và cho Piotroski.

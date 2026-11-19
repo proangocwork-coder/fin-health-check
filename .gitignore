@@ -1,0 +1,37 @@
+# Secrets and local environment (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Local tool settings
+.claude/settings.local.json
+*.local.json
+.vscode/
+.idea/
+
+# Dependencies (none used; kept as a guard)
+node_modules/
+
+# Build output and logs
+dist/
+build/
+out/
+*.log
+logs/
+coverage/
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# The Owner's own company data files (D-004): never in the repository
+data/

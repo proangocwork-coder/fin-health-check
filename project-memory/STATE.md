@@ -1,35 +1,28 @@
 # State
 
-Updated: 2026-11-19 by WP-07 session 3 (VIBEOS, company laptop) · Checkpoint: CP-20261119-07
-Tier: T1 · Stage: Development prep · Last gate passed: G2 (2026-11-19, D-003, D-004)
+Updated: 2026-11-19 by WP-07 session 4 (VIBEOS, company laptop) · Checkpoint: CP-20261119-08
+Tier: T1 · Stage: Development · Last gate passed: G3 (2026-11-19, agent-confirmed) · G2 (2026-11-19, D-003, D-004)
 
 ## Now
-G2 approved (Owner's words: "Duyệt G2"). `ARCHITECTURE.md` approved; D-003 plain browser app opened from a file, calculations in separate plain JavaScript files tested with Node's built-in test runner; D-004 one `.json` file per company plus an automatic browser draft. Session 3 closed. No code yet.
+G3 passed. `tasks.md` (13 tasks, criterion → test map), `RISKS.md` (8 risks), PRINCIPLES conventions, `.gitignore`, README, empty skeleton (`index.html`, `src/fhc.js`, `tests/`, `tests.html`, `tools/verify-browser.cmd`). T-001 done: browser verify PASS 2/2 on the laptop. Spec 001 0.3 has the TT99 line codes (from an unofficial copy of Phụ lục IV on expertis.vn). Session 4 closed. No product feature code yet.
 
 ## Next
-1. G3 (next session, personal machine): `plan-tasks` → tasks.md, RISKS.md; .gitignore (data files out of the repo); empty project with `node --test` passing; TT99 line-code map from Phụ lục IV of the original circular.
-2. Before G4: Owner's own Excel for PHP, VIC, HPG from audited reports (success measure 1, NFR-001).
-
-## Environment note
-Company laptop (Windows 11) has no Node.js (checked 2026-11-19): automated tests run on the personal machine only. G3 onwards should run there unless the Owner later approves a portable Node.js on the laptop.
-
-## Findings this session (for PILOT-01 and the product)
-- TT99/2025/TT-BTC replaces TT200 for fiscal years from 01/01/2026; FY2025 stays TT200. Line codes shift; B02 code 23 changes meaning (interest → financial expense). Sources: KPMG, MISA summaries; original text not read.
-- Public data site (CafeF, HPG): misaligned rows in the TT99-layout column for 2025, two views differ by 22.38 bn at total assets, the "Q4-2025" cash-flow column is full-year. → REQ-002, REQ-003.
-- Data entry time for the Owner (NFR-002, riskiest assumption) is still NOT measured: the agent pulled ~80% of FY2025 lines in ~2 minutes, which says nothing about the Owner's time.
+1. Personal machine, first step: `node --test` must pass 2/2 (the Node path of the harness is untested). If it fails, fix the harness before T-002.
+2. T-002 line catalogue TT200 / TT99 (riskiest), then T-003 / T-004 (tasks.md order).
+3. Ask the Owner at T-008 whether the reference Excel for PHP, VIC, HPG is under way (PR-08).
 
 ## Waiting on Owner
-- Nothing blocking. Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002).
+- Nothing blocking. Optional: time one manual entry of HPG 2 years with a stopwatch (NFR-002); start the reference Excel from audited reports (needed at T-013).
 
 ## Known issues
 - The built-in browser pane is not signed in to GitHub; repository-level actions on GitHub are done by the Owner.
-- This session ran on the company laptop (Owner's choice 2026-11-19), clone at `C:\Users\ngoc.nguyen25\Desktop\fin-health-check`. WORK_PACKAGES says WP-07 belongs on the personal machine; pull there before the next session.
+- Company laptop has no Node.js; it verifies with `tools\verify-browser.cmd` (Edge headless). The browser pane of Claude cannot open `file://` pages, so UI checks there are done by the Owner.
 
 ## Verify
-Command: none yet (set at G3) · Last result: n/a
+Command: `node --test` (personal machine) · `tools\verify-browser.cmd` (laptop) · Last result: laptop browser PASS 2/2 (2026-11-19); Node not run yet
 
 ## Pointers
-Brief: project-memory/BRIEF.md · PRD: project-memory/PRD.md · Architecture: project-memory/ARCHITECTURE.md · Spec: project-memory/features/001-metrics-and-scores/spec.md · Flags: project-memory/FLAG_RULES.md
+Brief: project-memory/BRIEF.md · PRD: project-memory/PRD.md · Architecture: project-memory/ARCHITECTURE.md · Spec: project-memory/features/001-metrics-and-scores/spec.md · Flags: project-memory/FLAG_RULES.md · Tasks: project-memory/tasks.md · Risks: project-memory/RISKS.md
 Decisions: project-memory/decisions/
 Principles: project-memory/PRINCIPLES.md
 Handbook: VIBEOS repo (personal machine `C:\Users\1\Desktop\vibeos`; company laptop `Desktop\VIBEOS_PROJECT\VIBEOS`); pilot metrics in 09_PILOTS/PILOT-01-fin-health-check/METRICS.md

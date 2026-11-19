@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Kiểm tra tự động</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+    pre { font-size: 14px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>Kiểm tra tự động — Financial Health Check</h1>
+  <p>Dòng đầu tiên cho biết kết quả: PASS là tất cả đều đúng, FAIL là có bài sai (xem dòng FAIL bên dưới).</p>
+  <pre id="results">Đang chạy…</pre>
+
+  <script src="tests/harness.js"></script>
+  <script src="src/fhc.js"></script>
+  <!-- Test files: add one line per file -->
+  <script src="tests/setup.test.js"></script>
+  <script>TestHarness.report();</script>
+</body>
+</html>
